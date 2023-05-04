@@ -6,7 +6,7 @@
     "allowJs": true,
     "types": ["cypress", "node"],
     "forceConsistentCasingInFileNames": false,
-    "strict": false,
+    "strict": true,
     "noImplicitOverride": false,
     "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": false,
