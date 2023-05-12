@@ -20,7 +20,7 @@
             "prefix": "ngshop",
             "style": "kebab-case"
           }
-        ]
+        ]        
       },
       "extends": [
         "plugin:@nrwl/nx/angular",
