@@ -1,5 +1,6 @@
 nx serve admin
 nx serve admin --port 4100
+nx serve ngshop --port 4100
 
 
 nx generate component pages/dashboard  --project=admin
@@ -13,3 +14,9 @@ npx nx g @nrwl/js:lib --name=user --style=scss  --no-interactive
 npx nx g @nrwl/js:lib --name=users --style=scss --bundler=esbuild --enableIvy --eslint  --no-interactive --prefix=users --routing  --dry-run
 
 npx nx g @nrwl/js:lib --name=orders --style=scss --bundler=esbuild --enableIvy --eslint  --no-interactive --prefix=users --routing
+
+npx nx generate @schematics/angular:component --name=banner --project=ui --style=scss --export --prefix=ui --selector=banner  --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=slider --project=ui --style=scss --export --prefix=ui --selector=slider  --no-interactive --dry-run
+
+
