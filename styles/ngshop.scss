@@ -1,0 +1,18 @@
+//base
+@import '../styles/base/colors.scss';
+@import '../styles/base/fonts.scss';
+@import '../styles/base/mixins.scss';
+@import '../styles/base/configuration.scss';
+
+//pages
+@import '../styles/apps/shop/pages/home-page.scss';
+@import '../styles/apps/shop/pages/product-list-page.scss';
+
+//shared
+@import '../styles/apps/shop/shared/header.scss';
+@import '../styles/apps/shop/shared/footer.scss';
+
+
+//Libs
+@import '../styles/libs/ui/ui.scss';
+
