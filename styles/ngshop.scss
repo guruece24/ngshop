@@ -4,6 +4,9 @@
 @import '../styles/base/mixins.scss';
 @import '../styles/base/configuration.scss';
 
+//bootstrap
+@import '~bootstrap/scss/bootstrap.scss';
+
 //pages
 @import '../styles/apps/shop/pages/home-page.scss';
 @import '../styles/apps/shop/pages/product-list-page.scss';
