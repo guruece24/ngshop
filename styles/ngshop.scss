@@ -1,8 +1,8 @@
 //base
+// @import '~normalize.css/normalize.css';
 @import '../styles/base/colors.scss';
 @import '../styles/base/fonts.scss';
 @import '../styles/base/mixins.scss';
-@import '../styles/base/configuration.scss';
 
 //bootstrap
 @import '../node_modules/bootstrap/scss/bootstrap.scss';
@@ -11,6 +11,8 @@
 @import '~primeicons/primeicons.css';
 @import '~primeng/resources/themes/saga-blue/theme.css';
 @import '~primeng/resources/primeng.min.css';
+@import '~primeflex/primeflex.css';
+@import '../styles/base/configuration.scss';
 
 //pages
 @import '../styles/apps/shop/pages/home-page.scss';
@@ -20,7 +22,5 @@
 @import '../styles/apps/shop/shared/header.scss';
 @import '../styles/apps/shop/shared/footer.scss';
 
-
 //Libs
 @import '../styles/libs/ui/ui.scss';
-
