@@ -33,6 +33,10 @@ npx nx generate @schematics/angular:component --name=shared/sidebar --project=ad
 
 npm install normalize.css --save --legacy-peer-deps
 
+npx nx generate @schematics/angular:component --name=categories/categories-list --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-categories-list  --no-interactive --dry-run
+
+npm install @angular/cdk --save --legacy-peer-deps
+
 
 
 

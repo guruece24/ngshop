@@ -36,29 +36,35 @@
                     list-style: none;
                     width: 100%;
                 }
-                
-                a{
-                  color: var(--surface-a);
-                  padding: 18px 15px;
-                  display: block;
-                  width: 100%;
-                  font-size: 15px;
 
-                  &:hover{
-                    background-color: var(--blue-700);
-                  }
+                a {
+                    color: var(--surface-a);
+                    padding: 18px 15px;
+                    display: block;
+                    width: 100%;
+                    font-size: 15px;
 
-                  i{
-                    margin-right: 8px;
-                    margin-top: 0;
-                    float: left;
-                  }
+                    &:hover {
+                        background-color: var(--blue-700);
+                    }
 
-                  &.logout{
-                    color: var(--blue-500);
-                  }
+                    i {
+                        margin-right: 8px;
+                        margin-top: 0;
+                        float: left;
+                    }
+
+                    &.logout {
+                        color: var(--blue-500);
+                    }
                 }
             }
+        }
+    }
+
+    &-page {
+        .grid {
+            padding-left: 15px;
         }
     }
 }
