@@ -37,6 +37,8 @@ npx nx generate @schematics/angular:component --name=categories/categories-list 
 
 npm install @angular/cdk --save --legacy-peer-deps
 
+npx nx generate @schematics/angular:service --name=services/categories --project=products  --skipTests  --no-interactive --dry-run
+
 
 
 
