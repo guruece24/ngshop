@@ -11,7 +11,7 @@
                                 label="Create"
                                 icon="pi pi-plus"
                                 styleClass="p-button-primary mr-4"
-                                routerLink="form"
+                                (click)="onSubmit()"
                             ></p-button>
                             <p-button
                                 label="Delete"
@@ -25,7 +25,7 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <form>
+                    <form [formGroup]="form">
                         <div class="card">
                             <h5>Vertical and Grid</h5>
                             <div class="formgrid grid">
@@ -34,16 +34,20 @@
                                     <input
                                         id="name"
                                         type="text"
+                                        formControlName="name"
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
+                                    <small *ngIf="categoryForm.name.invalid && isSubmitted" class="p-error">Name is required</small>
                                 </div>
                                 <div class="field col">
                                     <label for="icon">Icon</label>
                                     <input
                                         id="icon"
                                         type="text"
+                                        formControlName="icon"
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
+                                    <small *ngIf="categoryForm.icon.invalid && isSubmitted"  class="p-error">icon is required</small>
                                 </div>
                             </div>
                         </div>

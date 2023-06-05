@@ -20,6 +20,8 @@ import { InputTextModule } from 'primeng/inputtext';
 
 import { CategoriesService } from '@bluebits/products';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 const UX_MODULE = [CardModule, ToolbarModule, ButtonModule, TableModule, InputTextModule];
 
 const routes: Routes = [
@@ -60,6 +62,8 @@ const routes: Routes = [
     imports: [
         BrowserModule,
         HttpClientModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
         ...UX_MODULE
     ],
