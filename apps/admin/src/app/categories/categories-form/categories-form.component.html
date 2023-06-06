@@ -37,7 +37,11 @@
                                         formControlName="name"
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
-                                    <small *ngIf="categoryForm.name.invalid && isSubmitted" class="p-error">Name is required</small>
+                                    <small
+                                        *ngIf="categoryForm.name.invalid && isSubmitted"
+                                        class="p-error"
+                                        >Name is required</small
+                                    >
                                 </div>
                                 <div class="field col">
                                     <label for="icon">Icon</label>
@@ -47,7 +51,11 @@
                                         formControlName="icon"
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
-                                    <small *ngIf="categoryForm.icon.invalid && isSubmitted"  class="p-error">icon is required</small>
+                                    <small
+                                        *ngIf="categoryForm.icon.invalid && isSubmitted"
+                                        class="p-error"
+                                        >icon is required</small
+                                    >
                                 </div>
                             </div>
                         </div>
