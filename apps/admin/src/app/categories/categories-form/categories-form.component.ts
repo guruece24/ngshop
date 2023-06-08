@@ -1,10 +1,10 @@
-//import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriesService, Category } from '@bluebits/products';
 import { MessageService } from 'primeng/api';
 import { Router } from '@angular/router';
 //import { Routes, RouterModule } from '@angular/router';
+//import { Location } from '@angular/common';
 
 @Component({
     selector: 'admin-categories-form',
@@ -19,8 +19,7 @@ export class CategoriesFormComponent implements OnInit {
         private messageService: MessageService,
         private formBuilder: FormBuilder,
         private categoriesService: CategoriesService,
-       // private location: Location,
-        private router: Router
+        private router: Router // private location: Location,
     ) {}
 
     ngOnInit(): void {
@@ -56,12 +55,12 @@ export class CategoriesFormComponent implements OnInit {
                     detail: 'No Category Created!'
                 });
             },
+            complete: () => setTimeout(() => this.router.navigate(['/categories']), 2000)
             // complete: () =>{ timer(2000)
             // .toPromise()
             // .then(() => {
             //   this.location.back();
             // });}
-            complete: () => setTimeout(() => this.router.navigate(['/categories']), 2000)
         });
 
         // console.log(this.form.controls.name.value);
