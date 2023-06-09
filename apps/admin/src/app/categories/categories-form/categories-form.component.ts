@@ -15,15 +15,15 @@ export class CategoriesFormComponent implements OnInit {
     form: FormGroup;
     isSubmitted = false;
     editmode = false;
+    currentCategoryId: string;
 
     constructor(
         private messageService: MessageService,
         private formBuilder: FormBuilder,
         private categoriesService: CategoriesService,
         private router: Router,
-        private route: ActivatedRoute
-    ) // private location: Location,
-    {}
+        private route: ActivatedRoute // private location: Location,
+    ) {}
 
     ngOnInit(): void {
         this.form = this.formBuilder.group({
@@ -41,18 +41,17 @@ export class CategoriesFormComponent implements OnInit {
         }
 
         const category: Category = {
+            id: this.currentCategoryId,
             name: this.categoryForm.name.value,
             icon: this.categoryForm.icon.value
         };
 
         if (this.editmode) {
+            console.log(this.editmode);
             this._updateCategory(category);
         } else {
             this._addCategory(category);
         }
-
-        // console.log(this.form.controls.name.value);
-        // console.log(this.form.controls.icon.value);
     }
 
     _addCategory(category: Category) {
@@ -81,7 +80,23 @@ export class CategoriesFormComponent implements OnInit {
     }
 
     _updateCategory(category: Category) {
-       
+        this.categoriesService.updateCategoy(category).subscribe({
+            next: () => {
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Success',
+                    detail: 'Category is updated!'
+                });
+            },
+            error: () => {
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'No Category Updated!'
+                });
+            },
+            complete: () => setTimeout(() => this.router.navigate(['/categories']), 2000)
+        });
     }
 
     get categoryForm() {
@@ -92,6 +107,7 @@ export class CategoriesFormComponent implements OnInit {
         this.route.params.subscribe((params) => {
             if (params.id) {
                 this.editmode = true;
+                this.currentCategoryId = params.id;
                 this.categoriesService.getCategoryById(params.id).subscribe((category) => {
                     this.categoryForm.name.setValue(category.name);
                     this.categoryForm.icon.setValue(category.icon);
