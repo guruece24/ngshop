@@ -1,15 +1,18 @@
-<p-toast></p-toast> 
+<p-toast></p-toast>
 <div class="admin-wrapper">
     <!-- <admin-sidebar></admin-sidebar> -->
     <div class="admin-page">
-        <p-card header="Add Categories" subheader="You can add edit categories here">
+        <p-card
+            [header]="editmode ? 'Update Category':'Add Category'"
+            subheader="You can add edit categories here"
+        >
             <div class="grid mb-3">
                 <div class="col-12">
                     <p-toolbar>
                         <div class="p-toolbar-group-start"></div>
                         <div class="p-toolbar-group-end">
                             <p-button
-                                label="Create"
+                                [label]="editmode ? 'Update':'Create'"
                                 icon="pi pi-plus"
                                 styleClass="p-button-primary mr-4"
                                 (click)="onSubmit()"
@@ -27,7 +30,7 @@
             <div class="grid">
                 <div class="col-12">
                     <form [formGroup]="form">
-                        <div class="card">                             
+                        <div class="card">
                             <h5>Vertical and Grid</h5>
                             <div class="formgrid grid">
                                 <div class="field col">

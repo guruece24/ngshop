@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoriesService, Category } from '@bluebits/products';
 import { MessageService } from 'primeng/api';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 //import { Routes, RouterModule } from '@angular/router';
 //import { Location } from '@angular/common';
 
@@ -14,19 +14,24 @@ import { Router } from '@angular/router';
 export class CategoriesFormComponent implements OnInit {
     form: FormGroup;
     isSubmitted = false;
+    editmode = false;
 
     constructor(
         private messageService: MessageService,
         private formBuilder: FormBuilder,
         private categoriesService: CategoriesService,
-        private router: Router // private location: Location,
-    ) {}
+        private router: Router,
+        private route: ActivatedRoute
+    ) // private location: Location,
+    {}
 
     ngOnInit(): void {
         this.form = this.formBuilder.group({
             name: ['', Validators.required],
             icon: ['', Validators.required]
         });
+
+        this._checkEditMode();
     }
 
     onSubmit() {
@@ -40,6 +45,17 @@ export class CategoriesFormComponent implements OnInit {
             icon: this.categoryForm.icon.value
         };
 
+        if (this.editmode) {
+            this._updateCategory(category);
+        } else {
+            this._addCategory(category);
+        }
+
+        // console.log(this.form.controls.name.value);
+        // console.log(this.form.controls.icon.value);
+    }
+
+    _addCategory(category: Category) {
         this.categoriesService.createCategory(category).subscribe({
             next: () => {
                 this.messageService.add({
@@ -62,12 +78,25 @@ export class CategoriesFormComponent implements OnInit {
             //   this.location.back();
             // });}
         });
+    }
 
-        // console.log(this.form.controls.name.value);
-        // console.log(this.form.controls.icon.value);
+    _updateCategory(category: Category) {
+       
     }
 
     get categoryForm() {
         return this.form.controls;
+    }
+
+    _checkEditMode() {
+        this.route.params.subscribe((params) => {
+            if (params.id) {
+                this.editmode = true;
+                this.categoriesService.getCategoryById(params.id).subscribe((category) => {
+                    this.categoryForm.name.setValue(category.name);
+                    this.categoryForm.icon.setValue(category.icon);
+                });
+            }
+        });
     }
 }
