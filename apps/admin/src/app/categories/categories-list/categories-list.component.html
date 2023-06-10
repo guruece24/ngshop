@@ -6,7 +6,8 @@
             <div class="grid">
                 <div class="col-12 md:col-6 lg:col-3">
                     <p-toolbar>
-                        <div class="p-toolbar-group-start">
+                        <div class="p-toolbar-group-end"></div>
+                        <div class="p-toolbar-group-end">
                             <p-button
                                 label="New"
                                 icon="pi pi-plus"
@@ -17,8 +18,9 @@
                     </p-toolbar>
                 </div>
             </div>
+            <br />
             <div class="grid">
-                <div class="p-col-12">
+                <div class="col-12">
                     <p-table
                         [value]="categories"
                         tableStyle="{ 'min-width': '50rem' }"
@@ -29,7 +31,7 @@
                                 <th>Id</th>
                                 <th>Name</th>
                                 <th>Icon</th>
-                                <th></th>
+                                <th>Color</th>
                                 <th></th>
                             </tr>
                         </ng-template>
@@ -38,6 +40,7 @@
                                 <td>{{ category.id }}</td>
                                 <td>{{ category.name }}</td>
                                 <td>{{ category.icon }}</td>
+                                <td>{{ category.color }}</td>
                                 <td>
                                     <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
                                     <p-button
