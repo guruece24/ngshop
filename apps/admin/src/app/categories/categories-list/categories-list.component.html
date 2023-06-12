@@ -1,4 +1,4 @@
-<p-toast></p-toast> 
+<p-toast></p-toast>
 <div class="admin-wrapper">
     <!-- <admin-sidebar></admin-sidebar> -->
     <div class="admin-page">
@@ -28,21 +28,35 @@
                     >
                         <ng-template pTemplate="header">
                             <tr>
-                                <th>Id</th>
-                                <th>Name</th>
+                                <!-- <th>Id</th> -->
+                                <th pSortableColumn="name">
+                                    Name <p-sortIcon field="name"></p-sortIcon>
+                                </th>
                                 <th>Icon</th>
                                 <th>Color</th>
-                                <th></th>
+                                <th>Edit/Delete</th>
                             </tr>
                         </ng-template>
                         <ng-template pTemplate="body" let-category>
                             <tr>
-                                <td>{{ category.id }}</td>
+                                <!-- <td>{{ category.id }}</td> -->
                                 <td>{{ category.name }}</td>
-                                <td>{{ category.icon }}</td>
-                                <td>{{ category.color }}</td>
                                 <td>
-                                    <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
+                                    <i
+                                        style="font-size: 2rem"
+                                        class="pi"
+                                        [ngClass]="'pi-' + category.icon"
+                                    ></i>
+                                </td>
+                                <td>
+                                    <i
+                                        class="pi pi-circle-fill"
+                                        style="font-size: 2rem"
+                                        [ngStyle]="{ color: category.color }"
+                                    ></i>
+                                </td>
+                                <td>
+                                    <p-confirmDialog [style]="{ width: '50vw' }"></p-confirmDialog>
                                     <p-button
                                         label="Delete"
                                         icon="pi pi-trash"
@@ -73,4 +87,3 @@
     <p-confirmDialog [style]="{width: '50vw'}"></p-confirmDialog>
     <p-button (click)="DeleteConfirm1()" icon="pi pi-check" label="Confirm"></p-button>   
 </div> -->
-
