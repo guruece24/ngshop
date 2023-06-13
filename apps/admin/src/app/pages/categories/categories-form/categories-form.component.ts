@@ -58,11 +58,11 @@ export class CategoriesFormComponent implements OnInit {
 
     _addCategory(category: Category) {
         this.categoriesService.createCategory(category).subscribe({
-            next: () => {
+            next: (category: Category) => {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Success',
-                    detail: 'Category is added!'
+                    detail: `Category ${category.name} is Created!`
                 });
             },
             error: () => {
@@ -83,11 +83,11 @@ export class CategoriesFormComponent implements OnInit {
 
     _updateCategory(category: Category) {
         this.categoriesService.updateCategoy(category).subscribe({
-            next: () => {
+            next: (category: Category) => {
                 this.messageService.add({
                     severity: 'success',
                     summary: 'Success',
-                    detail: 'Category is updated!'
+                    detail: `Category ${category.name} is updated!`
                 });
             },
             error: () => {
@@ -103,6 +103,10 @@ export class CategoriesFormComponent implements OnInit {
 
     get categoryForm() {
         return this.form.controls;
+    }
+
+    onCancel() {
+        this.router.navigate(['/categories']);
     }
 
     _checkEditMode() {
