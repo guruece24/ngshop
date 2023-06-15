@@ -41,6 +41,11 @@ npx nx generate @schematics/angular:service --name=services/categories --project
 
 npx nx generate @schematics/angular:component --name=categories/categories-form --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-categories-form  --no-interactive --dry-run
 
+npx nx generate @schematics/angular:component --name=pages/products/products-list --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-products-list --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=pages/products/products-form --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-products-form --no-interactive --dry-run
+
+
 
 
 
