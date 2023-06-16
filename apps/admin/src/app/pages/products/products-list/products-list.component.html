@@ -35,14 +35,14 @@
                                 <th pSortableColumn="price">
                                     Price <p-sortIcon field="price"></p-sortIcon>
                                 </th>
-                                <th pSortableColumn="stock">
-                                    Stock <p-sortIcon field="stock"></p-sortIcon>
+                                <th pSortableColumn="countInStock">
+                                    Stock <p-sortIcon field="countInStock"></p-sortIcon>
                                 </th>
                                 <th pSortableColumn="category">
                                     Category <p-sortIcon field="category"></p-sortIcon>
                                 </th>
-                                <th pSortableColumn="created">
-                                    Created at <p-sortIcon field="created"></p-sortIcon>
+                                <th pSortableColumn="dateCreated">
+                                    Created at <p-sortIcon field="dateCreated"></p-sortIcon>
                                 </th>
                                 <th>Actions</th>
                             </tr>
@@ -51,7 +51,7 @@
                             <tr>
                                 <!-- <td>{{ category.id }}</td> -->
                                 <td>{{ product.name }}</td>
-                                <td>{{ product.image }}</td>
+                                <td><img [src]="product.image" style="width: 10%; height: 10%;" alt="" /> </td>
                                 <td>{{ product.price }}</td>
                                 <td>{{ product.countInStock }}</td>
                                 <td>{{ product.category?.name }}</td>
