@@ -28,6 +28,10 @@ export class ProductsFormComponent implements OnInit {
         this._checkEditMode();
     }
 
+    onSubmit() {}
+
+    onCancel() {}
+
     private _checkEditMode() {
         throw new Error('Method not implemented.');
     }
@@ -44,5 +48,9 @@ export class ProductsFormComponent implements OnInit {
             image: ['', Validators.required],
             isFeatured: [false]
         });
+    }
+
+    get productForm() {
+        return this.form.controls;
     }
 }

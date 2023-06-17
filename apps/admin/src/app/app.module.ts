@@ -26,6 +26,9 @@ import { ToastModule } from 'primeng/toast';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ColorPickerModule } from 'primeng/colorpicker';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { InputSwitchModule } from 'primeng/inputswitch';
+import { DropdownModule } from 'primeng/dropdown';
 
 import { CategoriesService } from '@bluebits/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
@@ -39,7 +42,10 @@ const UX_MODULE = [
     ToastModule,
     ConfirmDialogModule,
     ColorPickerModule,
-    InputNumberModule
+    InputNumberModule,
+    InputTextareaModule,
+    InputSwitchModule,
+    DropdownModule
 ];
 
 const routes: Routes = [

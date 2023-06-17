@@ -48,12 +48,13 @@
                                         >Name is required</small
                                     >
                                 </div>
-                                <div class="p-field p-col">
+                                <div class="field col">
                                     <label for="brand">Brand</label>
                                     <input
                                         formControlName="brand"
                                         id="brand"
-                                        type="text"                                        
+                                        type="text"
+                                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
                                     <small
                                         *ngIf="productForm.brand.invalid && isSubmitted"
@@ -61,19 +62,72 @@
                                         >Brand is required</small
                                     >
                                 </div>
-                                <div class="p-field p-col">
+                                <div class="field col">
                                     <label for="price">Price</label><br />
                                     <p-inputNumber
                                         formControlName="price"
                                         mode="decimal"
                                         inputId="price"
                                         [useGrouping]="false"
+                                        mode="decimal"
+                                        [minFractionDigits]="2"
+                                        [maxFractionDigits]="2"
                                     >
                                     </p-inputNumber>
                                     <small
                                         *ngIf="productForm.price.invalid && isSubmitted"
                                         class="p-error"
                                         >Price is required</small
+                                    >
+                                </div>
+                            </div>
+                            <div class="formgrid grid">
+                                <div class="field col-4">
+                                    <label for="countInStock">CountInStock</label><br />
+                                    <p-inputNumber
+                                        formControlName="countInStock"
+                                        mode="decimal"
+                                        inputId="countInStock"
+                                        [useGrouping]="false"
+                                    >
+                                    </p-inputNumber>
+                                    <small
+                                        *ngIf="productForm.countInStock.invalid && isSubmitted"
+                                        class="p-error"
+                                        >CountInStock is required</small
+                                    >
+                                </div>
+                                <div class="field col-4">
+                                    <label for="category">Category</label><br />
+                                    <input
+                                        formControlName="brand"
+                                        id="brand"
+                                        type="text"
+                                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                    />
+                                    <small
+                                        *ngIf="productForm.countInStock.invalid && isSubmitted"
+                                        class="p-error"
+                                        >Category is required</small
+                                    >
+                                </div>
+                                <div class="field col-4">
+                                    <label for="isFeatured">IsFeatured</label><br />
+                                    <p-inputSwitch formControlName="isFeatured"></p-inputSwitch>
+                                </div>
+                                <div class="field col-12">
+                                    <label for="description">Description</label>
+                                    <textarea
+                                        rows="7"
+                                        cols="30"
+                                        pInputTextarea
+                                        formControlName="description"
+                                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                    ></textarea>
+                                    <small
+                                        *ngIf="productForm.description.invalid && isSubmitted"
+                                        class="p-error"
+                                        >Description is required</small
                                     >
                                 </div>
                             </div>

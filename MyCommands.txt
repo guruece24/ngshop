@@ -45,8 +45,7 @@ npx nx generate @schematics/angular:component --name=pages/products/products-lis
 
 npx nx generate @schematics/angular:component --name=pages/products/products-form --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-products-form --no-interactive --dry-run
 
-
-
+curl ipinfo.io/json
 
 
 
