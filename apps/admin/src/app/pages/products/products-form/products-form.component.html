@@ -3,8 +3,8 @@
     <!-- <admin-sidebar></admin-sidebar> -->
     <div class="admin-page">
         <p-card
-            [header]="editmode ? 'Update Category' : 'Add Category'"
-            subheader="You can add edit categories here"
+            [header]="editmode ? 'Update Product' : 'Add Product'"
+            subheader="You can add edit products here"
         >
             <div class="grid mb-3">
                 <div class="col-12">
@@ -14,11 +14,13 @@
                             <p-button
                                 [label]="editmode ? 'Update' : 'Create'"
                                 icon="pi pi-plus"
+                                (click)="onSubmit()"
                                 styleClass="p-button-primary mr-4"
                             ></p-button>
                             <p-button
                                 styleClass="p-button-secondary"
                                 label="Cancel"
+                                (click)="onCancel()"
                                 icon="pi pi-arrow-circle-left"
                             ></p-button>
                         </div>
@@ -27,41 +29,52 @@
             </div>
             <div class="grid">
                 <div class="col-12">
-                    <form [formGroup]="">
+                    <form [formGroup]="form">
                         <div class="card">
                             <h5>Vertical and Grid</h5>
                             <div class="formgrid grid">
                                 <div class="field col">
                                     <label for="name">Name</label>
                                     <input
+                                        formControlName="name"
                                         id="name"
                                         type="text"
-                                        formControlName="name"
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                        pInputText
                                     />
-                                    <!-- <small
-                                        *ngIf="categoryForm.name.invalid && isSubmitted"
+                                    <small
+                                        *ngIf="productForm.name.invalid && isSubmitted"
                                         class="p-error"
                                         >Name is required</small
-                                    > -->
+                                    >
                                 </div>
-                                <div class="field col">
-                                    <label for="icon">Icon</label>
+                                <div class="p-field p-col">
+                                    <label for="brand">Brand</label>
                                     <input
-                                        id="icon"
-                                        type="text"
-                                        formControlName="icon"
-                                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
+                                        formControlName="brand"
+                                        id="brand"
+                                        type="text"                                        
                                     />
-                                    <!-- <small
-                                        *ngIf="categoryForm.icon.invalid && isSubmitted"
+                                    <small
+                                        *ngIf="productForm.brand.invalid && isSubmitted"
                                         class="p-error"
-                                        >icon is required</small
-                                    > -->
+                                        >Brand is required</small
+                                    >
                                 </div>
-                                <div class="field col">
-                                    <label for="icon">Color</label><br />
-                                    <p-colorPicker formControlName="color"></p-colorPicker>
+                                <div class="p-field p-col">
+                                    <label for="price">Price</label><br />
+                                    <p-inputNumber
+                                        formControlName="price"
+                                        mode="decimal"
+                                        inputId="price"
+                                        [useGrouping]="false"
+                                    >
+                                    </p-inputNumber>
+                                    <small
+                                        *ngIf="productForm.price.invalid && isSubmitted"
+                                        class="p-error"
+                                        >Price is required</small
+                                    >
                                 </div>
                             </div>
                         </div>
