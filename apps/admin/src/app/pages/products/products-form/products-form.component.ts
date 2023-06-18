@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ProductsService } from '@bluebits/products';
+import { ProductsService, CategoriesService, Product } from '@bluebits/products';
 import { MessageService } from 'primeng/api';
 
 @Component({
@@ -14,17 +14,20 @@ export class ProductsFormComponent implements OnInit {
     isSubmitted = false;
     editmode = false;
     currentProductId: string;
+    categories = [];
 
     constructor(
         private messageService: MessageService,
         private formBuilder: FormBuilder,
-        private categoriesService: ProductsService,
+        private productsService: ProductsService,
+        private categoriesService: CategoriesService,
         private router: Router,
         private route: ActivatedRoute // private location: Location,
     ) {}
 
     ngOnInit(): void {
         this._initForm();
+        this._getCategories();
         this._checkEditMode();
     }
 
@@ -47,6 +50,12 @@ export class ProductsFormComponent implements OnInit {
             richDescription: [''],
             image: ['', Validators.required],
             isFeatured: [false]
+        });
+    }
+
+    private _getCategories() {
+        this.categoriesService.getCategories().subscribe((cats) => {
+            this.categories = cats;
         });
     }
 

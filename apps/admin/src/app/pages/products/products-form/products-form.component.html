@@ -98,13 +98,17 @@
                                     >
                                 </div>
                                 <div class="field col-4">
-                                    <label for="category">Category</label><br />
-                                    <input
-                                        formControlName="brand"
-                                        id="brand"
-                                        type="text"
-                                        class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
-                                    />
+                                    <label for="category">Category</label><br />                                    
+                                    <p-dropdown
+                                        formControlName="category"
+                                        [options]="categories"
+                                        optionLabel="name"
+                                        optionValue="id"
+                                        [filter]="true"
+                                        filterBy="name"
+                                        [showClear]="true"
+                                        placeholder="Select a Category"
+                                    ></p-dropdown>
                                     <small
                                         *ngIf="productForm.countInStock.invalid && isSubmitted"
                                         class="p-error"
