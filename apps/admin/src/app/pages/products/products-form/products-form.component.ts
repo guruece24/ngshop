@@ -15,6 +15,7 @@ export class ProductsFormComponent implements OnInit {
     editmode = false;
     currentProductId: string;
     categories = [];
+    imageDisplay: string | ArrayBuffer;
 
     constructor(
         private messageService: MessageService,
@@ -57,6 +58,17 @@ export class ProductsFormComponent implements OnInit {
         this.categoriesService.getCategories().subscribe((cats) => {
             this.categories = cats;
         });
+    }
+
+    onImageUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const fileReader = new FileReader();
+            fileReader.onload = () => {
+                this.imageDisplay = fileReader.result;
+            };
+            fileReader.readAsDataURL(file);
+        }
     }
 
     get productForm() {

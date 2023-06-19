@@ -63,11 +63,12 @@
                                     >
                                 </div>
                                 <div class="field col">
-                                    <label for="price">Price</label><br />
+                                    <label for="price">Price</label>
                                     <p-inputNumber
                                         formControlName="price"
                                         mode="decimal"
                                         inputId="price"
+                                        class="w-full"
                                         [useGrouping]="false"
                                         mode="decimal"
                                         [minFractionDigits]="2"
@@ -83,10 +84,11 @@
                             </div>
                             <div class="formgrid grid">
                                 <div class="field col-4">
-                                    <label for="countInStock">CountInStock</label><br />
+                                    <label for="countInStock">CountInStock</label>
                                     <p-inputNumber
                                         formControlName="countInStock"
                                         mode="decimal"
+                                        class="w-full"
                                         inputId="countInStock"
                                         [useGrouping]="false"
                                     >
@@ -98,7 +100,7 @@
                                     >
                                 </div>
                                 <div class="field col-4">
-                                    <label for="category">Category</label><br />                                    
+                                    <label for="category">Category</label><br />
                                     <p-dropdown
                                         formControlName="category"
                                         [options]="categories"
@@ -133,6 +135,35 @@
                                         class="p-error"
                                         >Description is required</small
                                     >
+                                </div>
+                                <div class="field col-12">
+                                    <label for="richDescription">Product Details</label>
+                                    <p-editor
+                                        formControlName="text"
+                                        [style]="{ height: '320px' }"
+                                    ></p-editor>
+                                    <small
+                                        *ngIf="productForm.richDescription.invalid && isSubmitted"
+                                        class="p-error"
+                                        >Product Details is required</small
+                                    >
+                                </div>
+                                <div class="field col-12">
+                                    <label for="name">Main Image</label>
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        class="p-inputtext-lg w-full"
+                                        (change)="onImageUpload($event)"
+                                    />
+                                    <small
+                                        *ngIf="productForm.image.invalid && isSubmitted"
+                                        class="p-error"
+                                        >Image is required</small
+                                    >
+                                    <div class="field col-4 mt-3 pl-0">
+                                        <img style="width: 100%" [src]="imageDisplay" alt="" />
+                                    </div>
                                 </div>
                             </div>
                         </div>

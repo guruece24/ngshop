@@ -47,6 +47,7 @@ npx nx generate @schematics/angular:component --name=pages/products/products-for
 
 curl ipinfo.io/json
 
+npm install quill --save --legacy-peer-deps
 
 
 

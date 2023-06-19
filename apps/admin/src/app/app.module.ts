@@ -29,8 +29,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
+import { EditorModule } from 'primeng/editor';
 
-import { CategoriesService } from '@bluebits/products';
+import { CategoriesService, ProductsService } from '@bluebits/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 const UX_MODULE = [
@@ -45,7 +46,8 @@ const UX_MODULE = [
     InputNumberModule,
     InputTextareaModule,
     InputSwitchModule,
-    DropdownModule
+    DropdownModule,
+    EditorModule
 ];
 
 const routes: Routes = [
@@ -106,7 +108,7 @@ const routes: Routes = [
         RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
         ...UX_MODULE
     ],
-    providers: [CategoriesService, MessageService, ConfirmationService],
+    providers: [CategoriesService, ProductsService, MessageService, ConfirmationService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     exports: [

@@ -14,6 +14,9 @@
 @import '~primeflex/primeflex.css';
 @import '../styles/base/configuration.scss';
 
+@import '~quill/dist/quill.core.css';
+@import '~quill/dist/quill.snow.css';
+
 //shared
 @import './apps/admin/shell.scss';
 
