@@ -32,7 +32,19 @@ export class ProductsFormComponent implements OnInit {
         this._checkEditMode();
     }
 
-    onSubmit() {}
+    onSubmit() {
+        this.isSubmitted = true;
+
+        if (this.form.invalid) return;
+
+        const productFormData = new FormData();
+
+        Object.keys(this.productForm).map((key) => {
+            productFormData.append(key, this.productForm[key].value);
+        });
+
+        this._addProduct(productFormData);
+    }
 
     onCancel() {}
 
@@ -63,12 +75,34 @@ export class ProductsFormComponent implements OnInit {
     onImageUpload(event) {
         const file = event.target.files[0];
         if (file) {
+            this.form.patchValue({ image: file });
+            this.form.get('image').updateValueAndValidity();
             const fileReader = new FileReader();
             fileReader.onload = () => {
                 this.imageDisplay = fileReader.result;
             };
             fileReader.readAsDataURL(file);
         }
+    }
+
+    _addProduct(productData: FormData) {
+        this.productsService.createProduct(productData).subscribe({
+            next: (product: Product) => {
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Success',
+                    detail: `Product ${product.name} is Created!`
+                });
+            },
+            error: () => {
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'No Product Created!'
+                });
+            },
+            complete: () => setTimeout(() => this.router.navigate(['/categories']), 2000)
+        });
     }
 
     get productForm() {

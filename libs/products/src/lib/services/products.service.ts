@@ -20,9 +20,9 @@ export class ProductsService {
     //     return this.http.get<Product>(`${this.apiURLCategories}/${categoryId}`);
     // }
 
-    // createCategory(product: Product): Observable<Product> {
-    //     return this.http.post<Product>(this.apiURLCategories, product);
-    // }
+    createProduct(productData: FormData): Observable<Product> {
+        return this.http.post<Product>(this.apiURLProducts, productData);
+    }
 
     // deleteCategory(productId: string): Observable<object> {
     //     return this.http.delete<object>(`${this.apiURLCategories}/${productId}`);
