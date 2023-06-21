@@ -13,9 +13,9 @@ export class ProductsFormComponent implements OnInit {
     form: FormGroup;
     isSubmitted = false;
     editmode = false;
-    currentProductId: string;
     categories = [];
     imageDisplay: string | ArrayBuffer;
+    currentProductId: string;
 
     constructor(
         private messageService: MessageService,
@@ -34,22 +34,22 @@ export class ProductsFormComponent implements OnInit {
 
     onSubmit() {
         this.isSubmitted = true;
-
         if (this.form.invalid) return;
-
         const productFormData = new FormData();
 
         Object.keys(this.productForm).map((key) => {
             productFormData.append(key, this.productForm[key].value);
         });
 
-        this._addProduct(productFormData);
+        if (this.editmode) {
+            this._updateProduct(productFormData);
+        } else {
+            this._addProduct(productFormData);
+        }
     }
 
-    onCancel() {}
-
-    private _checkEditMode() {
-        throw new Error('Method not implemented.');
+    onCancel() {
+        this.router.navigate(['/products']);
     }
 
     private _initForm() {
@@ -102,6 +102,49 @@ export class ProductsFormComponent implements OnInit {
                 });
             },
             complete: () => setTimeout(() => this.router.navigate(['/categories']), 2000)
+        });
+    }
+
+    _updateProduct(productFormData: FormData) {
+        this.productsService.updateProduct(productFormData, this.currentProductId).subscribe({
+            next: (product: Product) => {
+                this.messageService.add({
+                    severity: 'success',
+                    summary: 'Success',
+                    detail: `Product ${product.name} is updated!`
+                });
+            },
+            error: () => {
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'No Product Updated!'
+                });
+            },
+            complete: () => setTimeout(() => this.router.navigate(['/products']), 2000)
+        });
+    }
+
+    private _checkEditMode() {
+        this.route.params.subscribe((params) => {
+            if (params.id) {
+                this.editmode = true;
+                this.currentProductId = params.id;
+                this.productsService.getProductById(params.id).subscribe((product) => {
+                    this.productForm.name.setValue(product.name);
+                    this.productForm.category.setValue(product.category.id);
+                    this.productForm.brand.setValue(product.brand);
+                    this.productForm.price.setValue(product.price);
+                    this.productForm.countInStock.setValue(product.countInStock);
+                    this.productForm.isFeatured.setValue(product.isFeatured);
+                    this.productForm.description.setValue(product.description);
+                    this.productForm.richDescription.setValue(product.richDescription);
+
+                    this.imageDisplay = product.image;
+                    this.productForm.image.setValidators([]);
+                    this.productForm.image.updateValueAndValidity();
+                });
+            }
         });
     }
 

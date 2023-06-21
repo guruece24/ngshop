@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductsService } from '@bluebits/products';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
     selector: 'admin-products-list',
@@ -9,11 +11,15 @@ import { ProductsService } from '@bluebits/products';
 export class ProductsListComponent implements OnInit {
     products = [];
 
-    constructor(private productsService: ProductsService) {}
+    constructor(
+        private productsService: ProductsService,
+        private router: Router,
+        private messageService: MessageService,
+        private confirmationService: ConfirmationService
+    ) {}
 
     ngOnInit(): void {
         this._getProducts();
-        
     }
 
     private _getProducts() {
@@ -21,5 +27,10 @@ export class ProductsListComponent implements OnInit {
             this.products = prods;
             console.log(this.products);
         });
+    }
+
+    updateProduct(productid: string) {
+        console.log(productid);
+        this.router.navigateByUrl(`products/form/${productid}`);
     }
 }
