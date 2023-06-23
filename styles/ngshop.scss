@@ -1,5 +1,5 @@
-
-
+//bootstrap
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 //base
 @import '~normalize.css/normalize.css';
@@ -13,9 +13,6 @@
 @import '~primeng/resources/primeng.min.css';
 @import '~primeflex/primeflex.css';
 @import '../styles/base/configuration.scss';
-
-//bootstrap
-@import '../node_modules/bootstrap/scss/bootstrap.scss';
 
 //pages
 @import '../styles/apps/shop/pages/home-page.scss';
@@ -32,10 +29,9 @@
 @import './libs/users/users.scss';
 @import './libs/ui/ui.scss';
 
-.container{
-  width: 2000px; 
-  padding: 10px;
-  margin: 0 auto;
-  background-color: var(--surface-100);
+.container {
+    width: 2000px;
+    padding: 10px;
+    margin: 0 auto;
+    background-color: var(--surface-100);
 }
-
