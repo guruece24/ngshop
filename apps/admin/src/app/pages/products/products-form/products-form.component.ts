@@ -101,7 +101,7 @@ export class ProductsFormComponent implements OnInit {
                     detail: 'No Product Created!'
                 });
             },
-            complete: () => setTimeout(() => this.router.navigate(['/categories']), 2000)
+            complete: () => setTimeout(() => this.router.navigate(['/products']), 2000)
         });
     }
 
