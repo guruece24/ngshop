@@ -3,13 +3,13 @@
         list-style: none;
         display: inline-block;
         margin-right: 15px;
-        
+
         a {
             color: var(--surface-700);
             cursor: pointer;
 
             &:hover {
-                color: #432de3;
+                color: $primary-color;
             }
         }
     }
