@@ -20,7 +20,7 @@ npx nx g @nrwl/js:lib --name=orders --style=scss --bundler=esbuild --enableIvy -
 
 npx nx generate @schematics/angular:component --name=banner --project=ui --style=scss --export --prefix=ui --selector=banner  --no-interactive --dry-run
 
-npx nx generate @schematics/angular:component --name=slider --project=ui --style=scss --export --prefix=ui --selector=slider  --no-interactive --dry-run
+npx nx generate @schematics/angular:component --name=slider --project=ui --style=scss --export --prefix=ui --selector=slider --no-interactive --dry-run
 
 npm install primeng --save
 npm install primeicons --save
@@ -58,3 +58,5 @@ NGSHOP COMMANDS
 npx nx generate @schematics/angular:component --name=shared/nav --project=ngshop --inlineStyle --skipTests --export --prefix=ngshop --selector=ngshop-nav   --no-interactive --dry-run
 
 npx nx generate @schematics/angular:component --name=components/products-search --project=products --inlineStyle --skipTests --export --prefix=ngshop --selector=ngshop-products-search --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=components/banner --project=ui --inlineStyle --skipTests --export  --selector=ui-banner --no-interactive --dry-run
