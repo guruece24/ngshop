@@ -60,3 +60,7 @@ npx nx generate @schematics/angular:component --name=shared/nav --project=ngshop
 npx nx generate @schematics/angular:component --name=components/products-search --project=products --inlineStyle --skipTests --export --prefix=ngshop --selector=ngshop-products-search --no-interactive --dry-run
 
 npx nx generate @schematics/angular:component --name=components/banner --project=ui --inlineStyle --skipTests --export  --selector=ui-banner --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=components/categories-banner --project=products --inlineStyle --skipTests --export  --selector=products-categories-banner --no-interactive --dry-run
+
+
