@@ -1,8 +1,8 @@
 <div class="categories-banner">
     <h3>Categories</h3>
     <div class="grid">
-        <div class="col-2  mr-4 mt-4" *ngFor="let category of categories" [ngStyle]="{ backgroundColor: category.color }" style="border-radius: 14px;">
-            <div class="category"  >
+        <div class="col-2  mr-4 mt-4" *ngFor="let category of categories"  style="border-radius: 14px;">
+            <div class="category" [ngStyle]="{ backgroundColor: category.color }" [routerLink]="'/products/category/' + category.id" >
                 <div class="category-icon">
                     <i class="pi pi-{{category.icon}}"></i>
                 </div>
