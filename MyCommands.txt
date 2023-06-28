@@ -63,4 +63,8 @@ npx nx generate @schematics/angular:component --name=components/banner --project
 
 npx nx generate @schematics/angular:component --name=components/categories-banner --project=products --inlineStyle --skipTests --export  --selector=products-categories-banner --no-interactive --dry-run
 
+npx nx generate @schematics/angular:component --name=components/product-item --project=products --inlineStyle --skipTests --export  --selector=products-product-item --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=components/featured-products --project=products --inlineStyle --skipTests --export  --selector=products-featured-products --no-interactive --dry-run
+
 
