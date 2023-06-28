@@ -6,15 +6,10 @@ import { Product } from '../../models/product';
     templateUrl: './product-item.component.html',
     styles: []
 })
+export class ProductItemComponent implements OnInit {
+    @Input() product: Product = new Product();
 
+    constructor() {}
 
-export class ProductItemComponent implements OnInit  {
-    @Input() product: Product;
-
-    constructor() {
-
-    }
-
-    ngOnInit(): void {
-    }
-  }
+    ngOnInit(): void {}
+}
