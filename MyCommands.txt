@@ -67,4 +67,5 @@ npx nx generate @schematics/angular:component --name=components/product-item --p
 
 npx nx generate @schematics/angular:component --name=components/featured-products --project=products --inlineStyle --skipTests --export  --selector=products-featured-products --no-interactive --dry-run
 
+npx nx generate @schematics/angular:component --name=pages/products/products-list --project=products --inlineStyle --skipTests --export --selector=products-list --no-interactive --dry-run
 
