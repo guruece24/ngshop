@@ -9,6 +9,7 @@ import { FeaturedProductsComponent } from './components/featured-products/featur
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 
 import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
 
 const routes: Routes = [
   {
@@ -19,7 +20,7 @@ const routes: Routes = [
 
 
 @NgModule({
-  imports: [CommonModule,  RouterModule.forChild(routes), ButtonModule],
+  imports: [CommonModule,  RouterModule.forChild(routes), ButtonModule, CheckboxModule],
   declarations: [
     ProductsSearchComponent,
     CategoriesBannerComponent,
