@@ -12,7 +12,7 @@ import { Category } from '../../models/category';
 export class ProductsListComponent implements OnInit {
     products: Product[] = [];
     categories: Category[] = [];
-    checked: boolean = false;
+    //checked: boolean = false;
 
     constructor(
         private productsService: ProductsService,
@@ -24,16 +24,25 @@ export class ProductsListComponent implements OnInit {
         this._getCategories();
     }
 
-    private _getProducts() {
-        this.productsService.getProducts().subscribe((prods) => {
+    private _getProducts(categoriesFilter?: any[]) {
+        this.productsService.getProducts(categoriesFilter).subscribe((prods) => {
             this.products = prods;
         });
     }
 
     _getCategories() {
-      this.categoriesService.getCategories().subscribe((cats) => {
-        this.categories = cats;
-        console.log(this.categories);
-      });
+        this.categoriesService.getCategories().subscribe((cats) => {
+            this.categories = cats;
+            //console.log(this.categories);
+        });
+    }
+
+    categoryFilter() {
+        const selectedCategoryIds = this.categories
+            .filter((category) => category.checked)
+            .map((category) => category.id);
+
+            this._getProducts(selectedCategoryIds);
+        //console.log('categoryfileter');
     }
 }
