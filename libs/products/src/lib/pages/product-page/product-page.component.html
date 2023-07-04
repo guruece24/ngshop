@@ -1,0 +1,19 @@
+<div class="product-page">
+    <div class="grid">
+        <div class="col-6">
+            <!-- <ui-gallery></ui-gallery> -->
+        </div>
+        <div class="col-6 product" *ngIf="product">
+            <h2>{{ product.name }}</h2>
+            <p class="prod-desc">{{ product.description }}</p>
+            <div class="product-rating">
+                <p-rating
+                    [(ngModel)]="product.rating"
+                    [cancel]="false"
+                    [disabled]="true"
+                ></p-rating>
+            </div>
+            <div class="product-price">  </div>
+        </div>
+    </div>
+</div>

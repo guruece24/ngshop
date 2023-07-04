@@ -25,7 +25,7 @@ export class CategoriesBannerComponent implements OnInit, OnDestroy {
             });
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
       this.endSubs$.next(0);
       this.endSubs$.complete();
     }
