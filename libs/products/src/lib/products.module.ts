@@ -13,6 +13,8 @@ import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
+import { InputNumberModule } from 'primeng/inputnumber';
+
 
 const routes: Routes = [
     {
@@ -36,7 +38,8 @@ const routes: Routes = [
         ButtonModule,
         CheckboxModule,
         FormsModule,
-        RatingModule
+        RatingModule,
+        InputNumberModule
     ],
     declarations: [
         ProductsSearchComponent,

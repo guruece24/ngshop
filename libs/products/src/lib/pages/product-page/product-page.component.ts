@@ -9,9 +9,11 @@ import { Subject, takeUntil } from 'rxjs';
     templateUrl: './product-page.component.html',
     styles: []
 })
+
 export class ProductPageComponent implements OnInit {
     product: Product = new Product();
     endSubs$: Subject<any> = new Subject();
+    quantity: number = 0;
 
     constructor(private prodService: ProductsService, private route: ActivatedRoute) {}
 
@@ -35,6 +37,10 @@ export class ProductPageComponent implements OnInit {
             .subscribe((resProduct) => {
                 this.product = resProduct;
             });
+    }
+
+    private addProductToCart(){
+        
     }
 
 
