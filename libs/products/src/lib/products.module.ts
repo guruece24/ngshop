@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
+import { UiModule } from '@bluebits/ui';
+
 import { ProductsSearchComponent } from './components/products-search/products-search.component';
 import { CategoriesBannerComponent } from './components/categories-banner/categories-banner.component';
 import { ProductItemComponent } from './components/product-item/product-item.component';
@@ -39,7 +41,8 @@ const routes: Routes = [
         CheckboxModule,
         FormsModule,
         RatingModule,
-        InputNumberModule
+        InputNumberModule,
+        UiModule
     ],
     declarations: [
         ProductsSearchComponent,

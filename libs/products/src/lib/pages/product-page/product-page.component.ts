@@ -9,9 +9,10 @@ import { Subject, takeUntil } from 'rxjs';
     templateUrl: './product-page.component.html',
     styles: []
 })
-
 export class ProductPageComponent implements OnInit {
     product: Product = new Product();
+    selectedImageAny: any;
+    selectedImage: any;
     endSubs$: Subject<any> = new Subject();
     quantity: number = 0;
 
@@ -26,8 +27,8 @@ export class ProductPageComponent implements OnInit {
     }
 
     ngOnDestroy(): void {
-      this.endSubs$.next(0);
-      this.endSubs$.complete();
+        this.endSubs$.next(0);
+        this.endSubs$.complete();
     }
 
     private _getProduct(id: string) {
@@ -36,12 +37,14 @@ export class ProductPageComponent implements OnInit {
             .pipe(takeUntil(this.endSubs$))
             .subscribe((resProduct) => {
                 this.product = resProduct;
+                if (resProduct.images) {
+                    this.selectedImageAny = resProduct.images;
+                    this.selectedImage = this.selectedImageAny[0];
+                    //console.log(this.selectedImageAny[0]);
+                    //console.log(this.selectedImageAny);
+                }
             });
     }
 
-    private addProductToCart(){
-        
-    }
-
-
+    private addProductToCart() {}
 }
