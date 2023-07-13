@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
@@ -15,7 +16,6 @@ import { CategoriesFormComponent } from './pages/categories/categories-form/cate
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -31,8 +31,10 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 
-import { CategoriesService, ProductsService } from '@bluebits/products';
 import { ConfirmationService, MessageService } from 'primeng/api';
+
+import { CategoriesService, ProductsService } from '@bluebits/products';
+import { UsersModule } from '@bluebits/users';
 
 const UX_MODULE = [
     CardModule,
@@ -106,6 +108,7 @@ const routes: Routes = [
         FormsModule,
         ReactiveFormsModule,
         RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+        UsersModule,
         ...UX_MODULE
     ],
     providers: [CategoriesService, ProductsService, MessageService, ConfirmationService],

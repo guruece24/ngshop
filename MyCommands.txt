@@ -1,10 +1,10 @@
 mongodb+srv://guruece24:India123@cluster0.fpdxnhy.mongodb.net/?retryWrites=true&w=majority&readPreference=primary
 
+.select('name category price rating -_id')
 
 nx serve admin
 nx serve admin --port 4100
 nx serve ngshop --port 4100
-
 
 nx generate component pages/dashboard  --project=admin
 
@@ -72,4 +72,7 @@ npx nx generate @schematics/angular:component --name=pages/products/products-lis
 npx nx generate @schematics/angular:component --name=pages/product-page --project=products --inlineStyle --skipTests --export --selector=products-product-page --no-interactive --dry-run
 
 npx nx generate @schematics/angular:component --name=components/gallery --project=ui --inlineStyle --skipTests --export --selector=ui-gallery --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=pages/login --project=users --inlineStyle --skipTests --export --selector=users-login --no-interactive --dry-run
+
 

@@ -1,0 +1,60 @@
+<div class="login-register">
+    <div class="login-register-panel">
+        <div class="grid">
+            <div class="col-6">
+                <img src="assets/images/login-photo.png" alt="" />
+            </div>
+            <div class="col-6 p-3">
+                <h3>Welcome</h3>
+                <h2>Login Page</h2>
+                <form [formGroup]="loginFormGroup">
+                    <div class="grid mt-6">
+                        <div class="col-12">
+                            <div class="p-inputgroup">
+                                <input
+                                    type="text"
+                                    formControlName="email"
+                                    pInputText
+                                    placeholder="Email"
+                                />
+                                <span class="p-inputgroup-addon">
+                                    <i class="pi pi-user"></i>
+                                </span>
+                            </div>
+                            <small *ngIf="loginForm.email.invalid && isSubmitted" class="p-error">
+                                <span *ngIf="loginForm.email.errors.required"
+                                    >Email is required</span
+                                >
+                                <span *ngIf="loginForm.email.errors.email">email is invalid</span>
+                            </small>
+                        </div>
+                        <div class="col-12">
+                            <div class="p-inputgroup">
+                                <!-- <span class="p-inputgroup-addon">
+                                    <i class="pi pi-lock"></i>
+                                </span>  -->
+                                <p-password
+                                    styleClass="w-full"
+                                    formControlName="password"
+                                    [(ngModel)]="value"
+                                    [toggleMask]="true"
+                                    placeholder="Password"
+                                ></p-password>
+                            </div>
+                            <small *ngIf="loginForm.password.invalid && isSubmitted" class="p-error"
+                                >Password is required</small
+                            >
+                        </div>
+                        <div class="col-12">
+                            <p-button
+                                label="Submit"
+                                styleClass="w-full"
+                                (onClick)="onSubmit()"
+                            ></p-button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
