@@ -75,4 +75,7 @@ npx nx generate @schematics/angular:component --name=components/gallery --projec
 
 npx nx generate @schematics/angular:component --name=pages/login --project=users --inlineStyle --skipTests --export --selector=users-login --no-interactive --dry-run
 
+npx nx generate @schematics/angular:service --name=services/auth --project=users  --skipTests  --no-interactive --dry-run
+
+npx nx generate @schematics/angular:service --name=services/users --project=users  --skipTests  --no-interactive --dry-run
 
