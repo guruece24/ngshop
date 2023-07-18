@@ -2,6 +2,11 @@ mongodb+srv://guruece24:India123@cluster0.fpdxnhy.mongodb.net/?retryWrites=true&
 
 .select('name category price rating -_id')
 
+{
+    "email" : "karthick123@gmail.com",
+    "password" : "123456"
+}
+
 nx serve admin
 nx serve admin --port 4100
 nx serve ngshop --port 4100
@@ -78,4 +83,6 @@ npx nx generate @schematics/angular:component --name=pages/login --project=users
 npx nx generate @schematics/angular:service --name=services/auth --project=users  --skipTests  --no-interactive --dry-run
 
 npx nx generate @schematics/angular:service --name=services/users --project=users  --skipTests  --no-interactive --dry-run
+
+npx nx generate @schematics/angular:service --name=services/localstorage --project=users  --skipTests  --no-interactive --dry-run
 
