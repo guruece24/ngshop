@@ -84,5 +84,7 @@ npx nx generate @schematics/angular:service --name=services/auth --project=users
 
 npx nx generate @schematics/angular:service --name=services/users --project=users  --skipTests  --no-interactive --dry-run
 
-npx nx generate @schematics/angular:service --name=services/localstorage --project=users  --skipTests  --no-interactive --dry-run
+npx nx generate @schematics/angular:service --name=services/localstorage --project=users  
+--skipTests  --no-interactive --dry-run
 
+npx nx generate @schematics/angular:service --name=services/auth-guard --project=users  --skipTests  --no-interactive --dry-run

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     isSubmitted: boolean = false;
     value!: string;
     authError = false;
-    authMessage = 'Email or Password are wrong';
+    authMessage = 'Email or Password are wrong. Or, You should be an admin to login!';
 
     constructor(
         private formBuilder: FormBuilder,

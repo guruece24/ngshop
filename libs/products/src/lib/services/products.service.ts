@@ -15,12 +15,9 @@ export class ProductsService {
     getProducts(categoriesFilter?: any[]): Observable<Product[]> {
         let params = new HttpParams();
         if (categoriesFilter) {
-            console.log('inside if');
             params = params.append('categories', categoriesFilter.join(','));
             return this.http.get<Product[]>(`${this.apiURLProducts}`, { params: params });
-        } else { 
-            console.log('inside else');
-
+        } else {
             return this.http.get<Product[]>(`${this.apiURLProducts}/all`);
         }
     }
