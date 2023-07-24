@@ -49,7 +49,7 @@ export class CategoriesFormComponent implements OnInit {
         };
 
         if (this.editmode) {
-            console.log(this.editmode);
+            //console.log(this.editmode);
             this._updateCategory(category);
         } else {
             this._addCategory(category);

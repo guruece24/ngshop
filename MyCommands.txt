@@ -88,3 +88,7 @@ npx nx generate @schematics/angular:service --name=services/localstorage --proje
 --skipTests  --no-interactive --dry-run
 
 npx nx generate @schematics/angular:service --name=services/auth-guard --project=users  --skipTests  --no-interactive --dry-run
+
+npx nx generate @schematics/angular:interceptor --name=services/jwt --project=users --skipTests --no-interactive --dry-run
+
+

@@ -5,6 +5,7 @@ import { LocalstorageService } from './localstorage.service';
 @Injectable({
     providedIn: 'root'
 })
+
 export class AuthGuard {
     constructor(private router: Router, private localStorageToken: LocalstorageService) {}
 
@@ -25,12 +26,13 @@ export class AuthGuard {
         return false;
     }
 
-    _isTokenExpired(exp: any): boolean {
-        //console.log(Math.floor(new Date().getTime()));
-        //console.log(Math.floor(exp));
+    private _isTokenExpired(exp: number): boolean {
+        //console.log(Math.floor(new Date().getTime()) + ' currentTime');
+        //console.log(Math.floor(exp) + 'expiredTime');
+        //console.log(Math.floor(exp * 1000) + 'expiredTime');
         //console.log(Math.floor(new Date().getTime() / 1000));
         //return Math.floor(new Date().getTime()) >= exp;
 
-        return Math.floor(new Date().getTime() / 1000) >= exp;
+        return Math.floor(new Date().getTime()) >= exp * 1000;
     }
 }

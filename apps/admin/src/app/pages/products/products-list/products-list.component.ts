@@ -25,12 +25,12 @@ export class ProductsListComponent implements OnInit {
     private _getProducts() {
         this.productsService.getProducts().subscribe((prods) => {
             this.products = prods;
-            console.log(this.products);
+            //console.log(this.products);
         });
     }
 
     updateProduct(productid: string) {
-        console.log(productid);
+        //console.log(productid);
         this.router.navigateByUrl(`products/form/${productid}`);
     }
 

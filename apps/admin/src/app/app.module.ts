@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -15,7 +15,6 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
-
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -34,7 +33,7 @@ import { EditorModule } from 'primeng/editor';
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { CategoriesService, ProductsService } from '@bluebits/products';
-import { AuthGuard, UsersModule } from '@bluebits/users';
+import { AuthGuard, JwtInterceptor, UsersModule } from '@bluebits/users';
 
 const UX_MODULE = [
     CardModule,
@@ -56,7 +55,7 @@ const routes: Routes = [
     {
         path: '',
         component: ShellComponent,
-        canActivate:[AuthGuard],
+        canActivate: [AuthGuard],
         children: [
             {
                 path: 'dashboard',
@@ -112,7 +111,13 @@ const routes: Routes = [
         UsersModule,
         ...UX_MODULE
     ],
-    providers: [CategoriesService, ProductsService, MessageService, ConfirmationService],
+    providers: [
+        CategoriesService,
+        ProductsService,
+        MessageService,
+        ConfirmationService,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     exports: [
