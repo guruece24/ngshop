@@ -15,6 +15,8 @@ import { CategoriesListComponent } from './pages/categories/categories-list/cate
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
 import { ProductsFormComponent } from './pages/products/products-form/products-form.component';
+import { UsersFormComponent } from './users/users-form/users-form.component';
+import { UsersListComponent } from './users/users-list/users-list.component';
 
 import { CardModule } from 'primeng/card';
 import { ToolbarModule } from 'primeng/toolbar';
@@ -84,7 +86,19 @@ const routes: Routes = [
             {
                 path: 'products/form/:id',
                 component: ProductsFormComponent
-            }
+            },
+            {
+              path: 'users',
+              component: UsersListComponent
+            },
+            {
+              path: 'users/form',
+              component: UsersFormComponent
+            },
+            {
+              path: 'users/form/:id',
+              component: UsersFormComponent
+            },
         ]
     }
 ];
@@ -99,7 +113,9 @@ const routes: Routes = [
         CategoriesListComponent,
         CategoriesFormComponent,
         ProductsListComponent,
-        ProductsFormComponent
+        ProductsFormComponent,
+        UsersListComponent,
+        UsersFormComponent
     ],
     imports: [
         BrowserModule,
@@ -126,7 +142,9 @@ const routes: Routes = [
         CategoriesListComponent,
         CategoriesFormComponent,
         ProductsListComponent,
-        ProductsFormComponent
+        ProductsFormComponent,
+        UsersListComponent,
+        UsersFormComponent
     ]
 })
 export class AppModule {}

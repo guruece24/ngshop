@@ -91,4 +91,8 @@ npx nx generate @schematics/angular:service --name=services/auth-guard --project
 
 npx nx generate @schematics/angular:interceptor --name=services/jwt --project=users --skipTests --no-interactive --dry-run
 
+npx nx generate @schematics/angular:component --name=users/users-list --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-users-list  --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=users/users-form --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-users-form  --no-interactive --dry-run
+
 
