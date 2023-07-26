@@ -5,30 +5,30 @@ import { User } from '../models/user';
 import { environment } from '@env/environment';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class UsersService {
-  apiURLUsers = environment.apiUrl + 'users';
-  
-  constructor(private http: HttpClient) { }
+    apiURLUsers = environment.apiUrl + 'users';
 
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiURLUsers);
-  }
+    constructor(private http: HttpClient) {}
 
-  getUser(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiURLUsers}/${userId}`);
-  }
+    getUsers(): Observable<User[]> {
+        return this.http.get<User[]>(this.apiURLUsers);
+    }
 
-  createUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiURLUsers, user);
-  }
+    getUser(userId: string): Observable<User> {
+        return this.http.get<User>(`${this.apiURLUsers}/${userId}`);
+    }
 
-  updateUser(user: User): Observable<User> {
-    return this.http.put<User>(`${this.apiURLUsers}/${user.id}`, user);
-  }
+    createUser(user: User): Observable<User> {
+        return this.http.post<User>(this.apiURLUsers, user);
+    }
 
-  deleteUser(userId: string): Observable<any> {
-    return this.http.delete<any>(`${this.apiURLUsers}/${userId}`);
-  }
+    updateUser(user: User): Observable<User> {
+        return this.http.put<User>(`${this.apiURLUsers}/${user.id}`, user);
+    }
+
+    deleteUser(userId: string): Observable<any> {
+        return this.http.delete<any>(`${this.apiURLUsers}/${userId}`);
+    }
 }

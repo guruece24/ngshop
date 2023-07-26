@@ -28,13 +28,13 @@ export class UsersListComponent implements OnInit {
         });
     }
 
-    private deleteUser(categoryId: string) {
+    private deleteUser(userId: string) {
         this.confirmationService.confirm({
             message: 'Are you sure that you want to proceed?',
             header: 'Confirmation',
             icon: 'pi pi-exclamation-triangle',
             accept: () => {
-                this.usersService.deleteUser(categoryId).subscribe({
+                this.usersService.deleteUser(userId).subscribe({
                     next: () => {
                         this._getUsers();
                         this.messageService.add({
