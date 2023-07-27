@@ -58,7 +58,7 @@ export class UsersListComponent implements OnInit {
         });
     }
 
-    private updateUser(categoryId: string) {
-        this.router.navigateByUrl(`categories/form/${categoryId}`);
+    private updateUser(userId: string) {
+        this.router.navigateByUrl(`users/form/${userId}`);
     }
 }
