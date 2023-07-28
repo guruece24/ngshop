@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { User, UsersService } from '@bluebits/users';
 import { MessageService } from 'primeng/api';
 
+
 @Component({
     selector: 'admin-users-form',
     templateUrl: './users-form.component.html',
@@ -26,7 +27,7 @@ export class UsersFormComponent implements OnInit {
 
     ngOnInit(): void {
         this._initUserForm();
-        //this._getCountries();
+        this._getCountries();
         this._checkEditMode();
     }
 
@@ -66,7 +67,6 @@ export class UsersFormComponent implements OnInit {
         };
 
         if (this.editmode) {
-            //console.log(this.editmode);
             this._updateUser(user);
         } else {
             this._addUser(user);
@@ -96,12 +96,16 @@ export class UsersFormComponent implements OnInit {
         });
     }
 
+    private _getCountries() {
+        this.countries = this.usersService.getCountries();
+      }
+
     _addUser(user: User) {
         this.usersService.createUser(user).subscribe({
             next: (user: User) => {
                 this.messageService.add({
                     severity: 'success',
-                    summary: 'Success',
+                    summary: 'Success',     
                     detail: `User ${user.name} is Created!`
                 });
             },

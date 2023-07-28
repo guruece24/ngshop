@@ -95,4 +95,5 @@ npx nx generate @schematics/angular:component --name=users/users-list --project=
 
 npx nx generate @schematics/angular:component --name=users/users-form --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-users-form  --no-interactive --dry-run
 
+npm install i18n-iso-countries  --save --legacy-peer-deps
 

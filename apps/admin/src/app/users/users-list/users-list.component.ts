@@ -61,4 +61,8 @@ export class UsersListComponent implements OnInit {
     private updateUser(userId: string) {
         this.router.navigateByUrl(`users/form/${userId}`);
     }
+
+    getCountryName(countryKey: string) {
+        if (countryKey) return this.usersService.getCountry(countryKey);
+      }
 }
