@@ -97,3 +97,7 @@ npx nx generate @schematics/angular:component --name=users/users-form --project=
 
 npm install i18n-iso-countries  --save --legacy-peer-deps
 
+npx nx generate @schematics/angular:component --name=orders/orders-list --project=admin --inlineStyle --skipTests --export --prefix=admin --selector=admin-orders-list  --no-interactive --dry-run
+
+npx nx generate @schematics/angular:component --name=pages/orders/orders-detail --project=admin --inlineStyle --skipTests --export  --selector=admin-orders-detail  --no-interactive --dry-run
+
