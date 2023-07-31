@@ -60,4 +60,8 @@ export class OrdersListComponent implements OnInit {
             }
         });
     }
+
+    viewOrder(orderId: string) {
+        this.router.navigateByUrl(`orders/${orderId}`);
+      }
 }
