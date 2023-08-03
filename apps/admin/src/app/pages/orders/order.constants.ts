@@ -1,15 +1,15 @@
 export const ORDER_STATUS = {
     Pending: {
         label: 'Pending',
-        color: 'secondary'
+        color: 'warning'
     },
     Processed: {
         label: 'Processed',
-        color: 'warning'
+        color: 'info'
     },
     Shipped: {
         label: 'Shipped',
-        color: 'warning'
+        color: 'info'
     },
     Delivered: {
         label: 'Delivered',
@@ -20,3 +20,26 @@ export const ORDER_STATUS = {
         color: 'danger'
     }
 };
+
+// export const ORDER_STATUS = {
+//     0: {
+//         label: 'Pending',
+//         color: 'primary'
+//     },
+//     1: {
+//         label: 'Processed',
+//         color: 'warning'
+//     },
+//     2: {
+//         label: 'Shipped',
+//         color: 'warning'
+//     },
+//     3: {
+//         label: 'Delivered',
+//         color: 'success'
+//     },
+//     4: {
+//         label: 'Failed',
+//         color: 'danger'
+//     }
+// };

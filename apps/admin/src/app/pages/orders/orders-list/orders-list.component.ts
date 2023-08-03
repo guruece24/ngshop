@@ -10,6 +10,7 @@ import { ORDER_STATUS } from '../order.constants';
     styles: []
 })
 export class OrdersListComponent implements OnInit {
+    // orderStatuses = [];
     orders: Order[] = [];
     orderStatus = ORDER_STATUS;
 
@@ -21,9 +22,22 @@ export class OrdersListComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
+       // this._mapOrderStatus();
         this._getOrders();
-        console.log(this.orderStatus[0].label);
+
+        // const result = this.orderStatuses.find(({ label }) => label == 'Pending');
+        // console.log(result.color);
     }
+
+    // private _mapOrderStatus() {
+    //     this.orderStatuses = Object.keys(ORDER_STATUS).map((key) => {
+    //         return {
+    //             id: key,
+    //             label: ORDER_STATUS[key].label,
+    //             color: ORDER_STATUS[key].color
+    //         };
+    //     });
+    // }
 
     _getOrders() {
         this.ordersService.getOrders().subscribe((orders) => {
@@ -63,5 +77,5 @@ export class OrdersListComponent implements OnInit {
 
     viewOrder(orderId: string) {
         this.router.navigateByUrl(`orders/${orderId}`);
-      }
+    }
 }
