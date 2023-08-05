@@ -1,16 +1,16 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
 
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ShellComponent } from './shared/shell/shell.component';
-import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { CategoriesListComponent } from './pages/categories/categories-list/categories-list.component';
 import { CategoriesFormComponent } from './pages/categories/categories-form/categories-form.component';
 import { ProductsListComponent } from './pages/products/products-list/products-list.component';
@@ -36,11 +36,12 @@ import { EditorModule } from 'primeng/editor';
 import { TagModule } from 'primeng/tag';
 import { InputMaskModule } from 'primeng/inputmask';
 import { FieldsetModule } from 'primeng/fieldset';
+import { ChartModule } from 'primeng/chart';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { CategoriesService, ProductsService } from '@bluebits/products';
-import { AuthGuard, JwtInterceptor, UsersModule } from '@bluebits/users';
+import { JwtInterceptor, UsersModule } from '@bluebits/users';
 
 const UX_MODULE = [
     CardModule,
@@ -58,65 +59,8 @@ const UX_MODULE = [
     EditorModule,
     TagModule,
     InputMaskModule,
-    FieldsetModule
-];
-
-const routes: Routes = [
-    {
-        path: '',
-        component: ShellComponent,
-        canActivate: [AuthGuard],
-        children: [
-            {
-                path: 'dashboard',
-                component: DashboardComponent
-            },
-            {
-                path: 'categories',
-                component: CategoriesListComponent
-            },
-            {
-                path: 'categories/form',
-                component: CategoriesFormComponent
-            },
-            {
-                path: 'categories/form/:id',
-                component: CategoriesFormComponent
-            },
-            {
-                path: 'products',
-                component: ProductsListComponent
-            },
-            {
-                path: 'products/form',
-                component: ProductsFormComponent
-            },
-            {
-                path: 'products/form/:id',
-                component: ProductsFormComponent
-            },
-            {
-                path: 'users',
-                component: UsersListComponent
-            },
-            {
-                path: 'users/form',
-                component: UsersFormComponent
-            },
-            {
-                path: 'users/form/:id',
-                component: UsersFormComponent
-            },
-            {
-                path: 'orders',
-                component: OrdersListComponent
-            },
-            {
-                path: 'orders/:id',
-                component: OrdersDetailComponent
-            }
-        ]
-    }
+    FieldsetModule,
+    ChartModule
 ];
 
 @NgModule({
@@ -141,7 +85,7 @@ const routes: Routes = [
         HttpClientModule,
         FormsModule,
         ReactiveFormsModule,
-        RouterModule.forRoot(routes, { initialNavigation: 'enabledBlocking' }),
+        AppRoutingModule,
         UsersModule,
         ...UX_MODULE
     ],
