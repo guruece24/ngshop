@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '@bluebits/orders';
 import { ProductsService } from '@bluebits/products';
-import { UsersService } from '@bluebits/users';
+import { LocalstorageService, UsersService } from '@bluebits/users';
 import { combineLatest } from 'rxjs';
 
 @Component({
@@ -16,6 +16,7 @@ export class DashboardComponent implements OnInit {
 
     data2: any;
     options2: any;
+
 
     constructor(
         private userService: UsersService,
@@ -33,23 +34,25 @@ export class DashboardComponent implements OnInit {
             this.statistics = values;
             console.log(this.statistics[0]);
             this.loadPieChart(this.statistics[0], this.statistics[1], this.statistics[2]);
-            this.loadDoughnutChart(this.statistics[0], this.statistics[1], this.statistics[2]);
+            //this.loadDoughnutChart(this.statistics[0], this.statistics[1], this.statistics[2]);
+            this.loadDoughnutChart(this.statistics);
         });
-
-       
     }
 
-    loadDoughnutChart(num1: any, num2: any, num3: any) {
+   
+
+    loadDoughnutChart(statistic = []) {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
 
         this.data2 = {
-            labels: ['Orders', 'Products', 'Users'],
+            labels: ['Orders', 'Products', 'Users', 'TotalSales'],
             datasets: [
                 {
-                    data: [num1, num2, num3],
+                    data: statistic,
                     backgroundColor: [
                         documentStyle.getPropertyValue('--cyan-400'),
+                        documentStyle.getPropertyValue('--cyan-500'),
                         documentStyle.getPropertyValue('--cyan-600'),
                         documentStyle.getPropertyValue('--cyan-200')
                     ],
