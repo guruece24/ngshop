@@ -104,4 +104,5 @@ npx nx generate @schematics/angular:component --name=orders/orders-list --projec
 
 npx nx generate @schematics/angular:component --name=pages/orders/orders-detail --project=admin --inlineStyle --skipTests --export  --selector=admin-orders-detail  --no-interactive --dry-run
 
+npx nx generate @schematics/angular:service --name=services/cart --project=orders  --skipTests --no-interactive --dry-run
 

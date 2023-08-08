@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OrdersService } from '@bluebits/orders';
 import { ProductsService } from '@bluebits/products';
 import { LocalstorageService, UsersService } from '@bluebits/users';
-import { combineLatest } from 'rxjs';
+import { Subject, combineLatest, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'admin-dashboard',
     templateUrl: './dashboard.component.html',
     styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
     statistics = [];
+
     data1: any;
     options1: any;
-
     data2: any;
     options2: any;
 
+    endsubs$: Subject<any> = new Subject();
 
     constructor(
         private userService: UsersService,
@@ -30,16 +31,16 @@ export class DashboardComponent implements OnInit {
             this.productService.getProductsCount(),
             this.userService.getUsersCount(),
             this.ordersService.getTotalSales()
-        ]).subscribe((values) => {
-            this.statistics = values;
-            console.log(this.statistics[0]);
-            this.loadPieChart(this.statistics[0], this.statistics[1], this.statistics[2]);
-            //this.loadDoughnutChart(this.statistics[0], this.statistics[1], this.statistics[2]);
-            this.loadDoughnutChart(this.statistics);
-        });
+        ])
+            .pipe(takeUntil(this.endsubs$))
+            .subscribe((values) => {
+                this.statistics = values;
+                console.log(this.statistics[0]);
+                this.loadPieChart(this.statistics[0], this.statistics[1], this.statistics[2]);
+                //this.loadDoughnutChart(this.statistics[0], this.statistics[1], this.statistics[2]);
+                this.loadDoughnutChart(this.statistics);
+            });
     }
-
-   
 
     loadDoughnutChart(statistic = []) {
         const documentStyle = getComputedStyle(document.documentElement);
@@ -110,5 +111,10 @@ export class DashboardComponent implements OnInit {
                 }
             }
         };
+    }
+
+    ngOnDestroy() {
+        this.endsubs$.next(0);
+        this.endsubs$.complete();
     }
 }
