@@ -24,17 +24,22 @@ export class LoginComponent implements OnInit {
         private auth: AuthService,
         private localStorageService:LocalstorageService,
         private router: Router
-    ) {}
+    ) {
+        this.loginFormGroup = this.formBuilder.group({
+            email: ['', [Validators.required, Validators.email]],
+            password: ['', Validators.required]
+        });
+    }
 
     ngOnInit(): void {
         this._initLoginForm();
     }
 
     private _initLoginForm() {
-        this.loginFormGroup = this.formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
-            password: ['', Validators.required]
-        });
+        // this.loginFormGroup = this.formBuilder.group({
+        //     email: ['', [Validators.required, Validators.email]],
+        //     password: ['', Validators.required]
+        // });
     }
 
     onSubmit() {
