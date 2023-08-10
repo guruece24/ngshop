@@ -5,15 +5,22 @@
                 <img src="../../../assets/images/logo.png" alt="" />
             </div>
         </div>
-        <div class="col-4 search">
-            <ngshop-products-search></ngshop-products-search>           
+        <div class="col-3 search">
+            <ngshop-products-search></ngshop-products-search>
         </div>
         <div class="col-3 offset-1 navigation">
             <ngshop-nav></ngshop-nav>
         </div>
-        <div class="col-1 tools">
-            <i class="pi pi-user"></i>
-            <i class="pi pi-shopping-cart"></i>
+        <div class="col-2 tools">
+            <!-- <i class="pi pi-user p-text-secondary" style="font-size: 2rem"></i>      -->
+            <p-avatar
+                icon="pi pi-user"
+                pBadge
+                size="large"
+                styleClass="mr-2"
+                [style]="{ 'background-color': '#ffffff' }"
+            ></p-avatar>
+            <orders-cart-icon></orders-cart-icon>
         </div>
     </div>
 </header>

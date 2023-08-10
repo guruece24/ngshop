@@ -106,3 +106,5 @@ npx nx generate @schematics/angular:component --name=pages/orders/orders-detail 
 
 npx nx generate @schematics/angular:service --name=services/cart --project=orders  --skipTests --no-interactive --dry-run
 
+npx nx generate @schematics/angular:component --name=components/cart-icon --project=orders --inlineStyle --skipTests --export --selector=orders-cart-icon  --no-interactive --dry-run
+

@@ -19,6 +19,7 @@ import { OrdersModule } from '@bluebits/orders';
 import { AccordionModule } from 'primeng/accordion';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { HttpClientModule } from '@angular/common/http';
+import { AvatarModule } from 'primeng/avatar';
 
 const routes: Routes = [
     {
@@ -32,7 +33,14 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
+    declarations: [
+        AppComponent,
+        HomePageComponent,
+        HeaderComponent,
+        FooterComponent,
+        NavComponent
+        
+    ],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -42,7 +50,8 @@ const routes: Routes = [
         UiModule,
         AccordionModule,
         ScrollPanelModule,
-        OrdersModule
+        OrdersModule,
+        AvatarModule
     ],
     providers: [],
     bootstrap: [AppComponent],
