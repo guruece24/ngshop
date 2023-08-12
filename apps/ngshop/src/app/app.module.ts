@@ -20,6 +20,7 @@ import { AccordionModule } from 'primeng/accordion';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { HttpClientModule } from '@angular/common/http';
 import { AvatarModule } from 'primeng/avatar';
+import { MessageService } from 'primeng/api';
 
 const routes: Routes = [
     {
@@ -33,14 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomePageComponent,
-        HeaderComponent,
-        FooterComponent,
-        NavComponent
-        
-    ],
+    declarations: [AppComponent, HomePageComponent, HeaderComponent, FooterComponent, NavComponent],
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
@@ -53,7 +47,7 @@ const routes: Routes = [
         OrdersModule,
         AvatarModule
     ],
-    providers: [],
+    providers: [MessageService],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     exports: [NavComponent]

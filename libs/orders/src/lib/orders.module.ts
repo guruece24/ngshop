@@ -4,9 +4,12 @@ import { CartService } from './services/cart.service';
 import { CartIconComponent } from './components/cart-icon/cart-icon.component';
 import { BadgeModule } from 'primeng/badge';
 import { AvatarModule } from 'primeng/avatar';
+import { MessageService } from 'primeng/api';
+
 
 @NgModule({
     imports: [CommonModule, BadgeModule, AvatarModule],
+    providers: [MessageService],
     declarations: [CartIconComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     exports: [CartIconComponent]

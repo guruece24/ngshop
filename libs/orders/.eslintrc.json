@@ -4,15 +4,24 @@
     "overrides": [
         {
             "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-            "rules": {}
+            "rules": {
+                "no-empty-function": "off",
+                "@typescript-eslint/no-empty-function": "error"
+            }
         },
         {
             "files": ["*.ts", "*.tsx"],
-            "rules": {}
+            "rules": {
+                "no-empty-function": "off",
+                "@typescript-eslint/no-empty-function": "error"
+            }
         },
         {
             "files": ["*.js", "*.jsx"],
-            "rules": {}
+            "rules": {
+                "no-empty-function": "off",
+                "@typescript-eslint/no-empty-function": "error"
+            }
         }
     ]
 }

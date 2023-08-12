@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductsService, CategoriesService, Product } from '@bluebits/products';
 import { MessageService } from 'primeng/api';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'admin-products-form',
     templateUrl: './products-form.component.html',
     styles: []
 })
-export class ProductsFormComponent implements OnInit {
+export class ProductsFormComponent implements OnInit, OnDestroy {
     form: FormGroup;
     isSubmitted = false;
     editmode = false;
     categories = [];
     imageDisplay: string | ArrayBuffer;
     currentProductId: string;
+    endSubs$: Subject<any> = new Subject();
 
     constructor(
         private messageService: MessageService,
@@ -67,7 +69,7 @@ export class ProductsFormComponent implements OnInit {
     }
 
     private _getCategories() {
-        this.categoriesService.getCategories().subscribe((cats) => {
+        this.categoriesService.getCategories().pipe(takeUntil(this.endSubs$)).subscribe((cats) => {
             this.categories = cats;
         });
     }
@@ -151,4 +153,9 @@ export class ProductsFormComponent implements OnInit {
     get productForm() {
         return this.form.controls;
     }
+
+    ngOnDestroy(): void {
+        this.endSubs$.next(0);
+        this.endSubs$.complete();
+      }
 }

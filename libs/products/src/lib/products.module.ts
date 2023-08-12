@@ -16,7 +16,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { RatingModule } from 'primeng/rating';
 import { InputNumberModule } from 'primeng/inputnumber';
-
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
 const routes: Routes = [
     {
@@ -42,8 +43,10 @@ const routes: Routes = [
         FormsModule,
         RatingModule,
         InputNumberModule,
+        ToastModule,
         UiModule
     ],
+    providers: [MessageService],
     declarations: [
         ProductsSearchComponent,
         CategoriesBannerComponent,

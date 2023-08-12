@@ -1,5 +1,6 @@
 export class Cart {
     items?: CartItem[];
+    isUpdated?: boolean;
 }
 
 export class CartItem {
