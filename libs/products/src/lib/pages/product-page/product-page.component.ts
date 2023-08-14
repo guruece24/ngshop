@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../../services/products.service';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../../models/product';
 import { Subject, takeUntil } from 'rxjs';
+
+import { ProductsService } from '../../services/products.service';
+import { Product } from '../../models/product';
+
+import { Cart, CartItem, CartService } from '@bluebits/orders';
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'products-product-page',
@@ -14,9 +18,14 @@ export class ProductPageComponent implements OnInit {
     selectedImageAny: any;
     selectedImage: any;
     endSubs$: Subject<any> = new Subject();
-    quantity: number = 0;
+    quantity = 1;
 
-    constructor(private prodService: ProductsService, private route: ActivatedRoute) {}
+    constructor(
+        private prodService: ProductsService,
+        private route: ActivatedRoute,
+        private cartService: CartService,
+        private messageService: MessageService
+    ) {}
 
     ngOnInit(): void {
         this.route.params.subscribe((params) => {
@@ -40,11 +49,29 @@ export class ProductPageComponent implements OnInit {
                 if (resProduct.images) {
                     this.selectedImageAny = resProduct.images;
                     this.selectedImage = this.selectedImageAny[0];
-                    //console.log(this.selectedImageAny[0]);
-                    //console.log(this.selectedImageAny);
                 }
             });
     }
 
-    private addProductToCart() {}
+    private addProductToCart() {
+        const cartItem: CartItem = {
+            productId: this.product.id,
+            quantity: this.quantity
+        };
+        const cart: Cart = this.cartService.setCartItem(cartItem);
+        if (cart.isUpdated) {
+            this.cartService.setCartItemNotUpdated();
+            this.messageService.add({
+                severity: 'success',
+                summary: 'Success',
+                detail: 'Cart is Updated!'
+            });
+        } else {
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'No Cart Updated!'
+            });
+        }
+    }
 }
