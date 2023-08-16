@@ -4,7 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 
 import { CartService } from '../../services/cart.service';
 import { OrdersService } from '../../services/orders.service';
-import {  CartItemDetailed } from '../../models/cart';
+import { CartItemDetailed } from '../../models/cart';
 
 @Component({
     selector: 'orders-cart-page',
@@ -27,11 +27,16 @@ export class CartPageComponent implements OnInit, OnDestroy {
     }
 
     private _getCartDetails() {
-      this.cartService.cart$.pipe(takeUntil(this.endSubs$)).subscribe(respCart => {
-        respCart.items.forEach(cartItem => {
-          
+        this.cartService.cart$.pipe(takeUntil(this.endSubs$)).subscribe((respCart) => {
+            respCart.items?.forEach((cartItem) => {
+                this.ordersService.getProduct((cartItem?.productId) ?? '').subscribe((respProduct) => {
+                    this.cartItemsDetailed.push({
+                        product: respProduct,
+                        quantity: cartItem.quantity
+                    });
+                });
+            });
         });
-      })
     }
 
     // deleteCartItem(cartItem: CartItemDetailed) {
@@ -43,7 +48,7 @@ export class CartPageComponent implements OnInit, OnDestroy {
     // }
 
     backToShop() {
-      this.router.navigate(['/products']);
+        this.router.navigate(['/products']);
     }
 
     ngOnDestroy() {
