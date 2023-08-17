@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Cart, CartItem } from '../models/cart';
 import { BehaviorSubject } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 export const CART_KEY = 'cart';
 @Injectable({
@@ -9,7 +10,7 @@ export const CART_KEY = 'cart';
 export class CartService {
     cart$: BehaviorSubject<Cart> = new BehaviorSubject(this.getCart());
 
-    constructor() {}
+    constructor(private messageService: MessageService) {}
 
     initCartLocalStorage() {
         const cart: Cart = this.getCart();
@@ -58,5 +59,23 @@ export class CartService {
         const cartJson = JSON.stringify(cart);
         localStorage.setItem(CART_KEY, cartJson);
         this.cart$.next(cart);
+    }
+
+    deleteCartItem(productId: string): Cart {
+        this.messageService.add({
+            severity: 'success',
+            summary: 'Success',
+            detail: 'Cart Item is deleted!'
+        });
+        const cart: Cart = this.getCart();
+        const newCart = cart.items?.filter((item) => item.productId !== productId);
+        cart.items = newCart;
+
+        const cartJson = JSON.stringify(cart);
+        localStorage.setItem(CART_KEY, cartJson);
+
+        this.cart$.next(cart);
+
+        return cart;
     }
 }

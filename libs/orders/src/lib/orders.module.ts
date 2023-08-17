@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CartService } from './services/cart.service';
 import { CartIconComponent } from './components/cart-icon/cart-icon.component';
 import { CartPageComponent } from './pages/cart-page/cart-page.component';
+import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
 import { BadgeModule } from 'primeng/badge';
@@ -45,7 +46,8 @@ const routes: Routes = [
         ReactiveFormsModule,
         InputTextModule,
         InputMaskModule,
-        DropdownModule
+        DropdownModule,
+        ToastModule
     ],
     providers: [MessageService],
     declarations: [CartIconComponent, CartPageComponent],
