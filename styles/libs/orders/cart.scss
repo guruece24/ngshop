@@ -3,8 +3,9 @@
     button {
         background-color: $primary-color;
         border: 0;
+        float: right;
     }
-    
+
     .cart {
         &-shipping {
             color: var(--green-700);

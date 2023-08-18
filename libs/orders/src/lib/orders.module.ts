@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskModule } from 'primeng/inputmask';
+import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 
 
 
@@ -50,9 +51,9 @@ const routes: Routes = [
         ToastModule
     ],
     providers: [MessageService],
-    declarations: [CartIconComponent, CartPageComponent],
+    declarations: [CartIconComponent, CartPageComponent, OrderSummaryComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    exports: [CartIconComponent, CartPageComponent, RouterModule]
+    exports: [CartIconComponent, CartPageComponent, RouterModule, OrderSummaryComponent]
 })
 export class OrdersModule {
     constructor(cartService: CartService) {

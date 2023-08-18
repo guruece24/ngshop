@@ -31,18 +31,24 @@ export class CartService {
         return cart;
     }
 
-    setCartItem(cartItem: CartItem): Cart {
+    setCartItem(cartItem: CartItem, updateCartItem?: boolean): Cart {
         const cart: Cart = this.getCart();
         const cartItemExist = cart.items?.find((item) => cartItem.productId === item.productId);
         if (cartItemExist) {
             cart.items?.map((item) => {
                 if (item.productId === cartItem.productId) {
-                    item.quantity = (cartItem?.quantity ?? 0) + (item?.quantity ?? 0);
+                    if (updateCartItem) {
+                        item.quantity = cartItem.quantity;
+                    } 
+                    else {
+                        item.quantity = (cartItem?.quantity ?? 0) + (item?.quantity ?? 0);
+                    }
                     cart.isUpdated = true;
                     return item;
                 }
             });
-        } else {
+        } 
+        else {
             cart.items?.push(cartItem);
             cart.isUpdated = true;
         }
@@ -50,6 +56,7 @@ export class CartService {
         const cartJson = JSON.stringify(cart);
         localStorage.setItem(CART_KEY, cartJson);
         this.cart$.next(cart);
+        console.log(cart);
         return cart;
     }
 

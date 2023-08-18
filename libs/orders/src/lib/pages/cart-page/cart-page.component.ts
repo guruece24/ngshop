@@ -77,8 +77,15 @@ export class CartPageComponent implements OnInit, OnDestroy {
         }
     }
 
-    // updateCartItemQuantity(event, cartItem: CartItemDetailed) {
-    // }
+    updateCartItemQuantity(event:any, cartItem: CartItemDetailed) {
+        console.log(event);
+        this.cartService.setCartItem(
+            {
+              productId: cartItem.product.id,
+              quantity: event.value
+            }, true
+          );
+    }
 
     backToShop() {
         this.router.navigate(['/products']);
