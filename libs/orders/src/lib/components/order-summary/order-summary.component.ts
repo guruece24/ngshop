@@ -4,6 +4,9 @@ import { OrdersService } from '../../services/orders.service';
 import { Router } from '@angular/router';
 import { Subject, take, takeUntil } from 'rxjs';
 
+ //const Razorpay = require('razorpay'); 
+declare var Razorpay: any;
+
 @Component({
     selector: 'orders-order-summary',
     templateUrl: './order-summary.component.html',
@@ -19,7 +22,7 @@ export class OrderSummaryComponent implements OnInit, OnDestroy {
         private cartService: CartService,
         private ordersService: OrdersService
     ) {
-      //this.router.url.includes('checkout') ? (this.isCheckout = true) : (this.isCheckout = false);
+        //this.router.url.includes('checkout') ? (this.isCheckout = true) : (this.isCheckout = false);
     }
 
     ngOnInit(): void {
@@ -45,5 +48,39 @@ export class OrderSummaryComponent implements OnInit, OnDestroy {
                 });
             }
         });
+    }
+
+    payNow() {
+        const RozarpayOptions = {
+            description: 'Sample Razorpay demo',
+            currency: 'INR',
+            amount: 100000,
+            name: 'Sai',
+            key: 'rzp_test_lEtRPVGKYptU6m',
+            image: 'https://i.imgur.com/FApqk3D.jpeg',
+            prefill: {
+                name: 'sai kumar',
+                email: 'sai@gmail.com',
+                phone: '9898989898'
+            },
+            theme: {
+                color: '#6466e3'
+            },
+            modal: {
+                ondismiss: () => {
+                    console.log('dismissed');
+                }
+            }
+        };
+
+        const successCallback = (paymentid: any) => {
+            console.log(paymentid);
+        };
+
+        const failureCallback = (e: any) => {
+            console.log(e);
+        };
+
+        Razorpay.open(RozarpayOptions, successCallback, failureCallback);
     }
 }

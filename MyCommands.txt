@@ -34,6 +34,8 @@ npm install primeicons --save
 
 npm install primeng --save --legacy-peer-deps
 npm install primeicons --save --legacy-peer-deps
+npm install @types/node --save-dev --legacy-
+peer-deps
 
 npm install primeflex --save --legacy-peer-deps
 npm install chart.js --save --legacy-peer-deps
