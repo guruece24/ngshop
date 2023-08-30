@@ -17,6 +17,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputMaskModule } from 'primeng/inputmask';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
+import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 
 
 
@@ -27,7 +28,7 @@ const routes: Routes = [
     },
     {
         path: 'checkout',
-        component: CartPageComponent
+        component: CheckoutPageComponent
     },
     {
         path: 'success',
@@ -51,9 +52,9 @@ const routes: Routes = [
         ToastModule
     ],
     providers: [MessageService],
-    declarations: [CartIconComponent, CartPageComponent, OrderSummaryComponent],
+    declarations: [CartIconComponent, CartPageComponent, OrderSummaryComponent, CheckoutPageComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    exports: [CartIconComponent, CartPageComponent, RouterModule, OrderSummaryComponent]
+    exports: [CartIconComponent, CartPageComponent, RouterModule, OrderSummaryComponent, CheckoutPageComponent]
 })
 export class OrdersModule {
     constructor(cartService: CartService) {
