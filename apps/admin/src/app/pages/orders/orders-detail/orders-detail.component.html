@@ -50,9 +50,11 @@
                         </div>
                     </div>
                     <div class="grid" style="color: green">
-                        <div class="col-2 offset-8 fw-bold">Total Price</div>
+                        <div class="col-2 offset-8 fw-bold"><h5>Total Price</h5></div>
 
-                        <div class="col-2 fw-bold">{{ order.totalPrice | currency }}</div>
+                        <div class="col-2 fw-bold">
+                            <h5>{{ order.totalPrice | currency }}</h5>
+                        </div>
                     </div>
                 </p-fieldset>
                 <p-fieldset legend="Order Address" styleClass="mb-4" [toggleable]="true"

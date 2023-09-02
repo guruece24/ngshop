@@ -1,6 +1,6 @@
 {
     "extends": "./tsconfig.json",
-    "include": ["src/**/*.ts", "../../libs/orders/src/lib/order.constants.ts"],
+    "include": ["src/**/*.ts"],
     "compilerOptions": {
         "types": ["jest", "node"]
     }
