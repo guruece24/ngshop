@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Order, OrdersService } from '@bluebits/orders';
 import { MessageService } from 'primeng/api';
-import { ORDER_STATUS } from '../order.constants';
+import { ORDER_STATUS } from '../../../../../../../libs/orders/src/lib/order.constants';
 
 @Component({
     selector: 'admin-orders-detail',
