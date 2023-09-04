@@ -8,7 +8,7 @@ import { OrderItem } from '../../models/order-item';
 import { CartService } from '../../services/cart.service';
 import { OrdersService } from '../../services/orders.service';
 import { ORDER_STATUS } from '../../order.constants';
-
+import { MessageService } from 'primeng/api';
 
 @Component({
     selector: 'orders-checkout-page',
@@ -27,7 +27,8 @@ export class CheckoutPageComponent implements OnInit {
         private usersService: UsersService,
         private formBuilder: FormBuilder,
         private cartService: CartService,
-        private ordersService: OrdersService
+        private ordersService: OrdersService,
+        private messageService: MessageService
     ) {}
 
     ngOnInit(): void {
@@ -89,11 +90,11 @@ export class CheckoutPageComponent implements OnInit {
                 this.router.navigate(['/success']);
             },
             error: () => {
-                // this.messageService.add({
-                //     severity: 'error',
-                //     summary: 'Error',
-                //     detail: 'No Order deleted!'
-                // });
+                this.messageService.add({
+                    severity: 'error',
+                    summary: 'Error',
+                    detail: 'No Order Created!'
+                });
             }
         });
     }
