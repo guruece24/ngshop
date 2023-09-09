@@ -41,7 +41,10 @@ npm install primeflex --save --legacy-peer-deps
 npm install chart.js --save --legacy-peer-deps
 npm install acorn  --save --legacy-peer-deps
 
+Build
 nx build ngshop --output-path docs --base-href /eshop-angular/
+
+nx build ngshop --prod --output-path docs --base-href /ngshop/
 
 npx nx generate @schematics/angular:component --name=shared/shell --project=admin --style=scss --export --prefix=admin --selector=shell  --no-interactive --dry-run
 
