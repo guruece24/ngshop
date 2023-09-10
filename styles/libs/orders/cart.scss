@@ -6,6 +6,8 @@
         float: right;
     }
 
+   
+
     .cart {
         &-shipping {
             color: var(--green-700);
@@ -37,6 +39,17 @@
                 color: $primary-color;
             }
 
+            &-remove {
+                float: left;
+                margin-right: 15px;
+            }
+
+            // @media screen and (max-width: 768px) {
+            //     inputNumber {
+            //         width: 25px;
+            //     }
+            // }
+
             &-quantity {
                 margin: 15px 0;
             }
@@ -50,3 +63,5 @@
         }
     }
 }
+
+

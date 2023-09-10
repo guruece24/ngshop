@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 
 import { ProductsService } from '../../services/products.service';
@@ -23,6 +23,7 @@ export class ProductPageComponent implements OnInit {
     constructor(
         private prodService: ProductsService,
         private route: ActivatedRoute,
+        private router: Router,
         private cartService: CartService,
         private messageService: MessageService
     ) {}
@@ -71,6 +72,24 @@ export class ProductPageComponent implements OnInit {
                 severity: 'error',
                 summary: 'Error',
                 detail: 'No Cart Updated!'
+            });
+        }
+    }
+
+    private buyNow() {
+        const cartItem: CartItem = {
+            productId: this.product.id,
+            quantity: this.quantity
+        };
+        const cart: Cart = this.cartService.setCartItem(cartItem);
+        if (cart.isUpdated) {
+            this.cartService.setCartItemNotUpdated();
+            this.router.navigate(['/cart']);
+        } else {
+            this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail: 'Oops! You cant buy now this item'
             });
         }
     }
