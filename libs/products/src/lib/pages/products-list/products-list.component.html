@@ -1,6 +1,6 @@
 <div class="products-page">
     <div class="grid">
-        <div class="col-3" *ngIf="!isCategoryPage">
+        <div class="col-md-3 col-sm-3" *ngIf="!isCategoryPage">
             <h4>Categories</h4>
             <div class="field-checkbox" *ngFor="let category of categories">
                 <p-checkbox
@@ -13,9 +13,9 @@
                 <!-- <p-checkbox [(ngModel)]="checked" [binary]="true" [inputId]="category.id"></p-checkbox> -->
             </div>
         </div>
-        <div [ngClass]="{ 'col-12': isCategoryPage, 'col-9': !isCategoryPage }">
+        <div [ngClass]="{ 'col-md-12 col-sm-12': isCategoryPage, 'col-md-9 col-sm-9': !isCategoryPage }">
             <div class="grid" *ngIf="products">
-                <div [ngClass]="{ 'col-4': isCategoryPage, 'col-3': !isCategoryPage }" *ngFor="let product of products">
+                <div [ngClass]="{ 'col-md-4 col-sm-4 mr-2': isCategoryPage, 'col-md-3 col-sm-3 mr-2': !isCategoryPage }" *ngFor="let product of products">
                     <products-product-item [product]="product"></products-product-item>
                 </div>
             </div>
