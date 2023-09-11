@@ -22,10 +22,10 @@
 
             <div class="cart-item mb-5" *ngFor="let cartItem of cartItemsDetailed">
                 <div class="grid">
-                    <div class="col-md-2 col-sm-2 cart-item-image">
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-2 cart-item-image">
                         <img [src]="cartItem.product.image" [attr.alt]="cartItem.product.name" />
                     </div>
-                    <div class="col-md-7 col-sm-7">
+                    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-7">
                         <div class="cart-item-name">{{ cartItem.product.name }}</div>
                         <div class="cart-item-price">{{ cartItem.product.price | currency }}</div>
                         <div class="cart-item-remove">
@@ -35,7 +35,7 @@
                             ></p-button>
                         </div>
                     </div>
-                    <div class="col-md-12 col-sm-12 col-xl-3 col-xs-12">
+                    <div class="col-md-12 col-sm-12 col-lg-3 col-xl-3 col-xs-12">
                         <div class="field cart-item-quantity">
                             <p-inputNumber
                                 mode="decimal"
@@ -59,7 +59,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-8 col-sm-8 col-xs-8 col-xl-4">
+        <div class="col-md-8 col-sm-8 col-xs-8 col-lg-4 col-xl-4">
             <orders-order-summary></orders-order-summary>
         </div>
     </div>
