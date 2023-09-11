@@ -7,14 +7,14 @@
         <div class="col-8">
             <form [formGroup]="checkoutFormGroup">
                 <div class="fluid formgrid grid">
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="name">Name</label>
                         <input formControlName="name" id="name" type="text"  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
                         <small *ngIf="checkoutForm.name.invalid && isSubmitted" class="p-error"
                             >Name is required</small
                         >
                     </div>
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="email">Email</label>
                         <input formControlName="email" id="email" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
                         <small *ngIf="checkoutForm.email.invalid && isSubmitted" class="p-error"
@@ -26,7 +26,7 @@
                             ></small
                         >
                     </div>
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="color">Phone</label><br />
                         <p-inputMask
                             mask="(999) 999-9999"
@@ -39,35 +39,35 @@
                     </div>
                 </div>
                 <div class="fluid formgrid grid">
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="street">Street</label>
                         <input formControlName="street" id="street" type="text"  class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
                         <small *ngIf="checkoutForm.street.invalid && isSubmitted" class="p-error"
                             >Street is required</small
                         >
                     </div>
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="street">Apartment</label>
                         <input formControlName="apartment" id="apartment" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"pInputText />
                         <small *ngIf="checkoutForm.apartment.invalid && isSubmitted" class="p-error"
                             >Apartment is required</small
                         >
                     </div>
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="street">Zip Code</label>
                         <input formControlName="zip" id="zip" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
                         <small *ngIf="checkoutForm.zip.invalid && isSubmitted" class="p-error"
                             >Zip is required</small
                         >
                     </div>
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="city">City</label>
                         <input formControlName="city" id="city" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" pInputText />
                         <small *ngIf="checkoutForm.city.invalid && isSubmitted" class="p-error"
                             >City is required</small
                         >
                     </div>
-                    <div class="field col-4">
+                    <div class="field col-lg-4 col-sm-6 col-md-6">
                         <label for="country">Country</label><br />
                         <p-dropdown
                             [options]="countries"
@@ -86,7 +86,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-4">
+        <div class="col-sm-12 col-md-12 col-lg-4">
             <orders-order-summary></orders-order-summary>
             <div class="checkout-button">
                 <p-button label="Place-Order" (onClick)="placeOrder()"></p-button>
