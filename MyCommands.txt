@@ -43,7 +43,7 @@ npm install acorn  --save --legacy-peer-deps
 
 Build
 nx build ngshop --output-path docs --base-href /eshop-angular/
-nx build ngshop --output-path docs1 --base-href /eshop-angular/
+nx build ngshop --output-path docs --base-href /eshop-angular/
 
 nx build ngshop --prod --output-path docs1 --base-href /ngshop/
 
