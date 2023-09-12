@@ -42,8 +42,7 @@ npm install chart.js --save --legacy-peer-deps
 npm install acorn  --save --legacy-peer-deps
 
 Build
-nx build ngshop --output-path docs --base-href /eshop-angular/
-nx build ngshop --output-path docs --base-href /eshop-angular/
+nx build ngshop --output-path docs --base-href /ngshop/
 
 nx build ngshop --prod --output-path docs1 --base-href /ngshop/
 
