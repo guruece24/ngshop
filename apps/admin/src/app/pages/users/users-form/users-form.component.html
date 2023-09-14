@@ -7,7 +7,7 @@
             subheader="You can add edit users here"
         >
             <div class="grid mb-3">
-                <div class="col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p-toolbar>
                         <div class="p-toolbar-group-start"></div>
                         <div class="p-toolbar-group-end">
@@ -28,12 +28,12 @@
                 </div>
             </div>
             <div class="grid">
-                <div class="col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <form [formGroup]="form">
                         <div class="card">
                             <h5>User Form</h5>
                             <div class="formgrid grid">
-                                <div class="field col">
+                                <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="name">Name</label>
                                     <input
                                         id="name"
@@ -47,7 +47,7 @@
                                         >Name is required</small
                                     >
                                 </div>
-                                <div class="field col">
+                                <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="email">Email</label>
                                     <input
                                         id="email"
@@ -66,7 +66,7 @@
                                         ></small
                                     >
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="password">Password</label>
                                     <input
                                         formControlName="password"
@@ -81,7 +81,7 @@
                                         >Password is required</small
                                     >
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="color">Phone</label><br />
                                     <p-inputMask
                                         mask="(999) 999-9999"
@@ -94,13 +94,13 @@
                                         >phone is required</small
                                     >
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="isAdmin">Is Admin</label><br />
                                     <p-inputSwitch formControlName="isAdmin"></p-inputSwitch>
                                 </div>
                             </div>
                             <div class="formgrid grid">
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="street">Street</label>
                                     <input
                                         formControlName="street"
@@ -110,7 +110,7 @@
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="street">Apartment</label>
                                     <input
                                         formControlName="apartment"
@@ -120,12 +120,12 @@
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="street">Zip Code</label>
                                     <input formControlName="zip" id="zip" type="text" pInputText
                                     class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" />
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="city">City</label>
                                     <input
                                         formControlName="city"
@@ -135,7 +135,7 @@
                                         class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                     />
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="country">Country</label><br />
                                     <p-dropdown
                                         [options]="countries"

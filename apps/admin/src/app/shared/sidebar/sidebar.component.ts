@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AuthService } from '@bluebits/users';
 
 @Component({
-  selector: 'admin-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.scss']
+    selector: 'admin-sidebar',
+    templateUrl: './sidebar.component.html',
+    styleUrls: ['./sidebar.component.scss']
 })
-
 export class SidebarComponent implements OnInit {
+    //@Input()
+    // status: boolean;
 
-  constructor(private authService: AuthService){}
+    constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {      
-  }
+    ngOnInit(): void {
+       // console.log(this.status);
+    }
 
-  logoutUser(){
-    this.authService.logout();
-  }
+    logoutUser() {
+        this.authService.logout();
+    }
 }

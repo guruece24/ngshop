@@ -1,8 +1,7 @@
 <div class="admin-page" *ngIf="statistics.length">
-  
-    <p-card header="Dashboard" subheader="Latest Updates">
+      <p-card header="Dashboard" subheader="Latest Updates">
         <div class="grid">
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12 col-md-12 ">
                 <p-card styleClass="d-orders">
                     <div class="d-item">
                         <div>
@@ -14,7 +13,7 @@
                 </p-card>
             </div>
 
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12 col-md-12">
                 <p-card styleClass="d-products">
                     <div class="d-item">
                         <div>
@@ -25,7 +24,7 @@
                     </div>
                 </p-card>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12 col-md-12">
                 <p-card styleClass="d-users">
                     <div class="d-item">
                         <div>
@@ -36,7 +35,7 @@
                     </div>
                 </p-card>
             </div>
-            <div class="col-3">
+            <div class="col-lg-3 col-sm-12 col-md-12">
                 <p-card styleClass="d-totalsales">
                     <div class="d-item">
                         <div>
@@ -51,13 +50,13 @@
     </p-card>
     <p-card header="Charts" subheader="Pictorial Representations">
         <div class="grid">
-            <div class="col-4">
+            <div class="col-lg-4 col-sm-12 col-md-12">
                 <p-chart type="pie" [data]="data1" [options]="options1"></p-chart>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-sm-12 col-md-12">
                 <p-chart type="doughnut" [data]="data2" [options]="options2"></p-chart>
             </div>
-            <div class="col-4">
+            <div class="col-lg-4 col-sm-12 col-md-12">
                 <p-chart type="pie" [data]="data1" [options]="options1"></p-chart>
             </div>
         </div>

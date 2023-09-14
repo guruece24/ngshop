@@ -7,7 +7,7 @@
             subheader="You can add edit products here"
         >
             <div class="grid mb-3">
-                <div class="col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p-toolbar>
                         <div class="p-toolbar-group-start"></div>
                         <div class="p-toolbar-group-end">
@@ -28,12 +28,12 @@
                 </div>
             </div>
             <div class="grid">
-                <div class="col-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <form [formGroup]="form">
                         <div class="card">
                             <h5>Vertical and Grid</h5>
                             <div class="formgrid grid">
-                                <div class="field col">
+                                <div class="field col-sm-12">
                                     <label for="name">Name</label>
                                     <input
                                         formControlName="name"
@@ -48,7 +48,7 @@
                                         >Name is required</small
                                     >
                                 </div>
-                                <div class="field col">
+                                <div class="field col-sm-12">
                                     <label for="brand">Brand</label>
                                     <input
                                         formControlName="brand"
@@ -62,7 +62,7 @@
                                         >Brand is required</small
                                     >
                                 </div>
-                                <div class="field col">
+                                <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <label for="price">Price</label>
                                     <p-inputNumber
                                         formControlName="price"
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                             <div class="formgrid grid">
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="countInStock">CountInStock</label>
                                     <p-inputNumber
                                         formControlName="countInStock"
@@ -99,7 +99,7 @@
                                         >CountInStock is required</small
                                     >
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="category">Category</label><br />
                                     <p-dropdown
                                         formControlName="category"
@@ -117,7 +117,7 @@
                                         >Category is required</small
                                     >
                                 </div>
-                                <div class="field col-4">
+                                <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12">
                                     <label for="isFeatured">IsFeatured</label><br />
                                     <p-inputSwitch formControlName="isFeatured"></p-inputSwitch>
                                 </div>
@@ -161,7 +161,7 @@
                                         class="p-error"
                                         >Image is required</small
                                     >
-                                    <div class="field col-4 mt-3 pl-0">
+                                    <div class="field col-lg-4 col-md-12 col-sm-12 col-xs-12 mt-3 pl-0">
                                         <img style="width: 100%" [src]="imageDisplay" alt="" />
                                     </div>
                                 </div>

@@ -8,12 +8,23 @@ import { LocalstorageService } from '@bluebits/users';
 })
 export class ShellComponent implements OnInit {
     userName = '';
+    status = true;
 
     constructor(private localStorageToken: LocalstorageService) {}
 
     ngOnInit(): void {
         this.getUserInfo();
     }
+
+    // addToggle() {
+    //     if (this.status) {
+    //         this.status = false;
+    //     } else {
+    //         this.status = true;
+    //     }
+
+    //     alert(this.status);
+    // }
 
     getUserInfo() {
         const token = this.localStorageToken.getToken();
