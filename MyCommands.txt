@@ -45,7 +45,6 @@ Build
 nx build ngshop --output-path docs --base-href /ngshop/
 
 nx build ngshop --prod --output-path docs1 --base-href /ngshop/
-nx build ngshop --prod --output-path ../../ngshopAdmin/docs --base-href /ngshop-admin/
 nx build admin --prod --output-path ../../ngshopAdmin/docs --base-href /ngshop-admin/
 
 npx nx generate @schematics/angular:component --name=shared/shell --project=admin --style=scss --export --prefix=admin --selector=shell  --no-interactive --dry-run

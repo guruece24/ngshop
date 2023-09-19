@@ -19,8 +19,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { CheckoutPageComponent } from './pages/checkout-page/checkout-page.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
-
-
+import { AuthGuard } from '@bluebits/users';
 
 const routes: Routes = [
     {
@@ -29,6 +28,7 @@ const routes: Routes = [
     },
     {
         path: 'checkout',
+        canActivate: [AuthGuard],
         component: CheckoutPageComponent
     },
     {
@@ -53,9 +53,22 @@ const routes: Routes = [
         ToastModule
     ],
     providers: [MessageService],
-    declarations: [CartIconComponent, CartPageComponent, OrderSummaryComponent, CheckoutPageComponent, ThankYouComponent],
+    declarations: [
+        CartIconComponent,
+        CartPageComponent,
+        OrderSummaryComponent,
+        CheckoutPageComponent,
+        ThankYouComponent
+    ],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
-    exports: [CartIconComponent, CartPageComponent, RouterModule, OrderSummaryComponent, CheckoutPageComponent, ThankYouComponent]
+    exports: [
+        CartIconComponent,
+        CartPageComponent,
+        RouterModule,
+        OrderSummaryComponent,
+        CheckoutPageComponent,
+        ThankYouComponent
+    ]
 })
 export class OrdersModule {
     constructor(cartService: CartService) {

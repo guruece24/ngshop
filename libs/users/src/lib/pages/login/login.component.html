@@ -1,21 +1,28 @@
 <div class="login-register">
-    <div class="login-register-panel">
+    <div class="login-register-panel offset-3">
         <div class="grid">
-            <div class="col-lg-6 col-md-12 col-sm-12">
+            <!-- <div class="col-lg-6 col-md-12 col-sm-12 p-2">
                 <img src="assets/images/login-photo.png" alt="" />
-            </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 p-3">
-                <h3>Welcome</h3>
-                <h2>Login Page</h2>
+            </div> -->
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 p-4">
+                <img
+                    src="assets/images/Admin-Profile-Vector-PNG-File.png"
+                    class="rounded-circle mx-auto d-block mb-2"
+                    alt=""
+                />
+                <h1>Welcome</h1>
+                <h4>Admin Page</h4>
+                <h5>Login</h5>
                 <form [formGroup]="loginFormGroup">
-                    <div class="grid mt-6">
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                    <div class="formgrid grid">
+                        <div class="field col-lg-12 col-sm-12 col-md-12 col-xs-12 p-1">
                             <div class="p-inputgroup">
                                 <input
                                     type="text"
                                     formControlName="email"
                                     pInputText
                                     placeholder="Email"
+                                    class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"
                                 />
                                 <span class="p-inputgroup-addon">
                                     <i class="pi pi-user"></i>
@@ -28,7 +35,7 @@
                                 <span *ngIf="loginForm.email.errors.email">email is invalid</span>
                             </small>
                         </div>
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                        <div class="field col-lg-12 col-sm-12 col-md-12 col-xs-12 p-1">
                             <div class="p-inputgroup">
                                 <!-- <span class="p-inputgroup-addon">
                                     <i class="pi pi-lock"></i>
@@ -39,20 +46,21 @@
                                     [(ngModel)]="value"
                                     [toggleMask]="true"
                                     placeholder="Password"
+                                    class="text-base text-color surface-overlay appearance-none outline-none focus:border-primary w-full"
                                 ></p-password>
                             </div>
                             <small *ngIf="loginForm.password.invalid && isSubmitted" class="p-error"
                                 >Password is required</small
                             >
                         </div>
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+                        <div class="field col-lg-12 col-sm-12 col-md-12 col-xs-12 p-1">
                             <p-button
                                 label="Submit"
                                 styleClass="w-full"
                                 (onClick)="onSubmit()"
                             ></p-button>
                         </div>
-                        <div class="col-lg-12 col-sm-12 col-md-12 col-xs-12" *ngIf="isSubmitted && authError">
+                        <div *ngIf="isSubmitted && authError">
                             <small class="p-error">{{ authMessage }}</small>
                         </div>
                     </div>

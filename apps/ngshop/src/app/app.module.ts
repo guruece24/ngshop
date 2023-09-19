@@ -14,6 +14,7 @@ import { NavComponent } from './shared/nav/nav.component';
 
 import { UiModule } from '@bluebits/ui';
 import { ProductsModule } from '@bluebits/products';
+import { UsersModule } from '@bluebits/users';
 import { OrdersModule } from '@bluebits/orders';
 
 import { AccordionModule } from 'primeng/accordion';
@@ -45,7 +46,8 @@ const routes: Routes = [
         AccordionModule,
         ScrollPanelModule,
         OrdersModule,
-        AvatarModule
+        AvatarModule,
+        UsersModule
     ],
     providers: [MessageService],
     bootstrap: [AppComponent],
