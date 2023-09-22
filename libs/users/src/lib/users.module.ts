@@ -9,7 +9,11 @@ import { PasswordModule } from 'primeng/password';
 import { ButtonModule } from 'primeng/button';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import * as fromUsers from './state/users.reducer';
+import { UsersEffects } from './state/users.effects';
+import { UsersFacade } from './state/users.facade';
 
 const routes: Routes = [
     {
@@ -19,11 +23,20 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [CommonModule, RouterModule.forChild(routes), InputTextModule, ButtonModule, PasswordModule, FormsModule, ReactiveFormsModule],
-    providers: [MessageService],
+    imports: [
+        CommonModule,
+        RouterModule.forChild(routes),
+        InputTextModule,
+        ButtonModule,
+        PasswordModule,
+        FormsModule,
+        ReactiveFormsModule,
+        StoreModule.forFeature(fromUsers.USERS_FEATURE_KEY, fromUsers.usersReducer),
+        EffectsModule.forFeature([UsersEffects])
+    ],
+    providers: [MessageService, UsersFacade],
     declarations: [LoginComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     exports: [LoginComponent]
 })
-
 export class UsersModule {}
