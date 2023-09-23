@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
+import { StoreModule } from '@ngrx/store';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 
@@ -22,6 +23,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
 import { HttpClientModule } from '@angular/common/http';
 import { AvatarModule } from 'primeng/avatar';
 import { MessageService } from 'primeng/api';
+import { EffectsModule } from '@ngrx/effects';
 
 const routes: Routes = [
     {
@@ -47,7 +49,9 @@ const routes: Routes = [
         ScrollPanelModule,
         OrdersModule,
         AvatarModule,
-        UsersModule
+        UsersModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([])
     ],
     providers: [MessageService],
     bootstrap: [AppComponent],
