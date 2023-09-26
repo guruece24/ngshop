@@ -31,13 +31,13 @@ const usersReducer = createReducer(
         user: action.user,
         isAuthenticated: true
     })),
-    on(UsersActions.buildUserSessionFailed, (state, action) => ({
+    on(UsersActions.buildUserSessionFailed, (state) => ({
         ...state,
         user: null,
         isAuthenticated: false
     }))
 );
 
-export function usersReducer(state: UsersState | undefined, action: Action) {
+export function reducer(state: UsersState | undefined, action: Action) {
     return reducer(state, action);
 }

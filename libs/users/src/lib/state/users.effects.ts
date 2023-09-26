@@ -4,18 +4,37 @@ import { switchMap, catchError, of } from 'rxjs';
 import * as UsersActions from './users.actions';
 import * as UsersFeature from './users.reducer';
 import { UsersService } from '../services/users.service';
+import { LocalstorageService } from '../services/localstorage.service';
 
 @Injectable()
 export class UsersEffects {
-    private actions$ = inject(Actions);
+    //  private actions$ = inject(Actions);
 
-    buildUserSessionit$ = createEffect(() =>
+    constructor(
+        private actions$: Actions,
+        private localStorageService: LocalstorageService,
+        private usersService: UsersService
+    ) {}
+
+    buildUserSession$ = createEffect(() =>
         this.actions$.pipe(
             ofType(UsersActions.buildUserSession),
-            switchMap((user) => of(UsersActions.buildUserSessionSuccess({ user: user }))),
-            catchError((error) => {
-                console.error('Error', error);
-                return of(UsersActions.buildUserSessionFailed());
+            concatMap(() => {
+                if (this.localStorageService.isValidToken()) {
+                    const userId = this.localStorageService.getUserIdFromToken();
+                    if (userId) {
+                        return this.usersService.getUser(userId).pipe(
+                            map((user) => {
+                                return UsersActions.buildUserSessionSuccess({ user: user });
+                            }),
+                            catchError(() => of(UsersActions.buildUserSessionFailed()))
+                        );
+                    } else {
+                        return of(UsersActions.buildUserSessionFailed());
+                    }
+                } else {
+                    return of(UsersActions.buildUserSessionFailed());
+                }
             })
         )
     );
