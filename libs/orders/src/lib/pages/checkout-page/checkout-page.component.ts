@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UsersService } from '@bluebits/users';
@@ -9,18 +9,20 @@ import { CartService } from '../../services/cart.service';
 import { OrdersService } from '../../services/orders.service';
 import { ORDER_STATUS } from '../../order.constants';
 import { MessageService } from 'primeng/api';
+import { Subject, takeUntil } from 'rxjs';
 
 @Component({
     selector: 'orders-checkout-page',
     templateUrl: './checkout-page.component.html',
     styles: []
 })
-export class CheckoutPageComponent implements OnInit {
+export class CheckoutPageComponent implements OnInit, OnDestroy {
     checkoutFormGroup: FormGroup;
     isSubmitted = false;
     orderItems: OrderItem[] = [];
     userId = '5fb3d05216a69e00246c02ee';
     countries = [];
+    unsubscribe$: Subject<any> = new Subject();
 
     constructor(
         private router: Router,
@@ -33,8 +35,14 @@ export class CheckoutPageComponent implements OnInit {
 
     ngOnInit(): void {
         this._initCheckoutForm();
+        this._autoFillUserData();
         this._getCartItems();
         this._getCountries();
+    }
+
+    ngOnDestroy() {
+        this.unsubscribe$.next(0);
+        this.unsubscribe$.complete();
     }
 
     private _initCheckoutForm() {
@@ -48,6 +56,25 @@ export class CheckoutPageComponent implements OnInit {
             apartment: ['', Validators.required],
             street: ['', Validators.required]
         });
+    }
+
+    private _autoFillUserData() {
+        this.usersService
+            .observeCurrentUser()
+            .pipe(takeUntil(this.unsubscribe$))
+            .subscribe((user) => {
+                if (user) {
+                    this.userId = user.id;
+                    this.checkoutForm.name.setValue(user.name);
+                    this.checkoutForm.email.setValue(user.email);
+                    this.checkoutForm.phone.setValue(user.phone);
+                    this.checkoutForm.city.setValue(user.city);
+                    this.checkoutForm.street.setValue(user.street);
+                    this.checkoutForm.country.setValue(user.country);
+                    this.checkoutForm.zip.setValue(user.zip);
+                    this.checkoutForm.apartment.setValue(user.apartment);
+                }
+            });
     }
 
     private _getCartItems() {

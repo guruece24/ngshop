@@ -15,12 +15,12 @@ import { NavComponent } from './shared/nav/nav.component';
 
 import { UiModule } from '@bluebits/ui';
 import { ProductsModule } from '@bluebits/products';
-import { UsersModule } from '@bluebits/users';
+import { JwtInterceptor, UsersModule } from '@bluebits/users';
 import { OrdersModule } from '@bluebits/orders';
 
 import { AccordionModule } from 'primeng/accordion';
 import { ScrollPanelModule } from 'primeng/scrollpanel';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AvatarModule } from 'primeng/avatar';
 import { MessageService } from 'primeng/api';
 import { EffectsModule } from '@ngrx/effects';
@@ -53,7 +53,10 @@ const routes: Routes = [
         StoreModule.forRoot({}),
         EffectsModule.forRoot([])
     ],
-    providers: [MessageService],
+    providers: [
+        MessageService,
+        { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    ],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
     exports: [NavComponent]

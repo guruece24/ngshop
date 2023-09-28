@@ -39,5 +39,5 @@ const usersReducer = createReducer(
 );
 
 export function reducer(state: UsersState | undefined, action: Action) {
-    return reducer(state, action);
+    return usersReducer(state, action);
 }
