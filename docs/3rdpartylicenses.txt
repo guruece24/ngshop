@@ -20,6 +20,15 @@ MIT
 
 @bluebits/users
 
+@ngrx/effects
+MIT
+
+@ngrx/entity
+MIT
+
+@ngrx/store
+MIT
+
 animate.css
 MIT
 The MIT License (MIT)
