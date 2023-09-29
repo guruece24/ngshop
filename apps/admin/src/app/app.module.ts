@@ -6,7 +6,9 @@ import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
+import { EffectsModule } from '@ngrx/effects';
 
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -83,6 +85,8 @@ const UX_MODULE = [
         BrowserModule,
         BrowserAnimationsModule,
         HttpClientModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
         FormsModule,
         ReactiveFormsModule,
         AppRoutingModule,

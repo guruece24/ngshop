@@ -20,7 +20,7 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
     checkoutFormGroup: FormGroup;
     isSubmitted = false;
     orderItems: OrderItem[] = [];
-    userId = '5fb3d05216a69e00246c02ee';
+    userId: string;
     countries = [];
     unsubscribe$: Subject<any> = new Subject();
 
