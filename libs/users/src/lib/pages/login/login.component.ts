@@ -59,7 +59,9 @@ export class LoginComponent implements OnInit {
                 }
             },
             complete: () => {
-                this.router.navigate(['/products']);
+                this.router.navigate(['/']).then(() => {
+                    window.location.reload();
+                });
             }
         });
     }

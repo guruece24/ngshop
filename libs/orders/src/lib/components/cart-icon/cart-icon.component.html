@@ -27,12 +27,37 @@
 
 <p-avatar
     icon="pi pi-shopping-cart p-text-secondary"
-    styleClass="mr-2"
+    styleClass="mr-5"
     pBadge
     [value]="cartCount"
     size="large"
     severity="danger"
     [style]="{ 'background-color': '#ffffff' }"
     routerLink="/cart"
-    
 ></p-avatar>
+
+<!-- <p-avatar
+    icon="pi pi-sign-out"
+    styleClass="mr-2"
+    *ngIf="isSigned"
+    size="large"
+    [style]="{ 'background-color': '#ffffff' }"
+    routerLink="/"
+></p-avatar> -->
+
+<p-avatar
+    icon="pi pi-user"    
+    size="large"
+    *ngIf="!isSigned"
+    styleClass="mr-4"
+    [style]="{ 'background-color': '#ffffff' }"
+    routerLink="/login"
+></p-avatar>
+
+<p-button
+    icon="pi pi-sign-out"
+    styleClass=" p-button-danger mr-1"
+    *ngIf="isSigned"
+    routerLink="/"
+    (onClick)="logoutUser()"
+></p-button>
