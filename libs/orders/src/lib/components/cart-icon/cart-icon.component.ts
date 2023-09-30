@@ -24,7 +24,6 @@ export class CartIconComponent implements OnInit, OnDestroy {
         this.cartService.cart$.subscribe((cart) => {
             this.cartCount = cart?.items?.length ?? 0;
         });
-        //console.log('guru');
         this._isUserSignedIn();
     }
 
@@ -34,7 +33,6 @@ export class CartIconComponent implements OnInit, OnDestroy {
             .pipe(takeUntil(this.unsubscribe$))
             .subscribe((user) => {
                 if (user) {
-                    //console.log('guru1');
                     this.isSigned = true;
                 } else {
                     this.isSigned = false;
@@ -44,7 +42,7 @@ export class CartIconComponent implements OnInit, OnDestroy {
 
     logoutUser() {
         this.authService.logout();
-        this.isSigned = false;
+        // this.isSigned = false;
     }
 
     ngOnDestroy() {
