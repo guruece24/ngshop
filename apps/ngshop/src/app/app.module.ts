@@ -25,6 +25,9 @@ import { AvatarModule } from 'primeng/avatar';
 import { MessageService } from 'primeng/api';
 import { EffectsModule } from '@ngrx/effects';
 
+import { NgxStripeModule } from 'ngx-stripe';
+
+
 const routes: Routes = [
     {
         path: '',
@@ -51,7 +54,8 @@ const routes: Routes = [
         AvatarModule,
         UsersModule,
         StoreModule.forRoot({}),
-        EffectsModule.forRoot([])
+        EffectsModule.forRoot([]),
+        NgxStripeModule.forRoot('pk_test_51KHtJfSGLMk0b0PhICwTNUSjyLMMAn8dYJMUi60r1f2UGJg39Y9P70RQmKU7Dw8pm0fohgMzXX09231E7u36VVN0008OwSGkL5'),
     ],
     providers: [
         MessageService,

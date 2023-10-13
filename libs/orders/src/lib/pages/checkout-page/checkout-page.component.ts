@@ -97,6 +97,12 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
             return;
         }
 
+        this.ordersService.createCheckoutSession(this.orderItems).subscribe((error) => {
+            if (error) {
+                console.log('error in redirect to payment');
+            }
+        });
+
         const order: Order = {
             orderItems: this.orderItems,
             shippingAddress1: this.checkoutForm.street.value,

@@ -68,6 +68,8 @@ npx nx generate @schematics/angular:component --name=pages/products/products-for
 curl ipinfo.io/json
 
 npm install quill --save --legacy-peer-deps
+npm install ngx-stripe @stripe/stripe-js --save --legacy-peer-deps
+
 
 NGSHOP COMMANDS
 --------------
