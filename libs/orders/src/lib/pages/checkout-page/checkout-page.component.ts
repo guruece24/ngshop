@@ -103,33 +103,33 @@ export class CheckoutPageComponent implements OnInit, OnDestroy {
             }
         });
 
-        const order: Order = {
-            orderItems: this.orderItems,
-            shippingAddress1: this.checkoutForm.street.value,
-            shippingAddress2: this.checkoutForm.apartment.value,
-            city: this.checkoutForm.city.value,
-            zip: this.checkoutForm.zip.value,
-            country: this.checkoutForm.country.value,
-            phone: this.checkoutForm.phone.value,
-            status: 0,
-            user: this.userId,
-            dateOrdered: `${Date.now()}`
-        };
+        // const order: Order = {
+        //     orderItems: this.orderItems,
+        //     shippingAddress1: this.checkoutForm.street.value,
+        //     shippingAddress2: this.checkoutForm.apartment.value,
+        //     city: this.checkoutForm.city.value,
+        //     zip: this.checkoutForm.zip.value,
+        //     country: this.checkoutForm.country.value,
+        //     phone: this.checkoutForm.phone.value,
+        //     status: 0,
+        //     user: this.userId,
+        //     dateOrdered: `${Date.now()}`
+        // };
 
-        this.ordersService.createOrder(order).subscribe({
-            next: () => {
-                //redirect to thank you page // payment
-                this.cartService.emptyCart();
-                this.router.navigate(['/success']);
-            },
-            error: () => {
-                this.messageService.add({
-                    severity: 'error',
-                    summary: 'Error',
-                    detail: 'No Order Created!'
-                });
-            }
-        });
+        // this.ordersService.createOrder(order).subscribe({
+        //     next: () => {
+        //         //redirect to thank you page // payment
+        //         this.cartService.emptyCart();
+        //         this.router.navigate(['/success']);
+        //     },
+        //     error: () => {
+        //         this.messageService.add({
+        //             severity: 'error',
+        //             summary: 'Error',
+        //             detail: 'No Order Created!'
+        //         });
+        //     }
+        // });
     }
 
     backToCart() {

@@ -54,7 +54,7 @@ export class OrdersService {
     createCheckoutSession(orderItem: OrderItem[]) {
         return this.http.post(`${this.apiURLOrders}/create-checkout-session`, orderItem).pipe(
             switchMap((session: { id: string }) => {
-                this.stripeService.redirectToCheckout({ sessionId: session.id });
+               return this.stripeService.redirectToCheckout({ sessionId: session.id });
             })
         );
     }

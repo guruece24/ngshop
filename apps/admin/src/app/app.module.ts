@@ -6,9 +6,12 @@ import { appRoutes } from './app.routes';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
+
+import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { NgxStripeModule } from 'ngx-stripe';
+
 
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
@@ -91,7 +94,8 @@ const UX_MODULE = [
         ReactiveFormsModule,
         AppRoutingModule,
         UsersModule,
-        ...UX_MODULE
+        ...UX_MODULE,
+        NgxStripeModule.forRoot('pk_test_51KHtJfSGLMk0b0PhICwTNUSjyLMMAn8dYJMUi60r1f2UGJg39Y9P70RQmKU7Dw8pm0fohgMzXX09231E7u36VVN0008OwSGkL5'),
     ],
     providers: [
         CategoriesService,
