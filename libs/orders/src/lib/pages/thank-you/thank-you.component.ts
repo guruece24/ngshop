@@ -28,8 +28,11 @@ export class ThankYouComponent implements OnInit {
             next: (response) => {
                 console.log(response);
                 this.orderId = response.id;
+                
                 //redirect to thank you page // payment
                 this.cartService.emptyCart();
+                this.ordersService.removeCachedOrderData();
+
                 //this.router.navigate(['/success']);
                 this.messageService.add({
                     severity: 'success',
