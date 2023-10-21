@@ -12,7 +12,7 @@
         "rules": {
           "@angular-eslint/directive-selector": [
             "error",
-            { "type": "attribute", "prefix": "ui", "style": "kebab_case" }
+            { "type": "attribute", "prefix": "ui", "style": "kebab-case" }
           ],
           "@angular-eslint/component-selector": [
             "error",

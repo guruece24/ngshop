@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '@bluebits/users';
 
 @Component({
@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
     constructor(private authService: AuthService) {}
 
     ngOnInit(): void {
-       // console.log(this.status);
+        // console.log(this.status);
     }
 
     logoutUser() {

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { OrdersService } from '@bluebits/orders';
 import { ProductsService } from '@bluebits/products';
-import { LocalstorageService, UsersService } from '@bluebits/users';
+import { UsersService } from '@bluebits/users';
 import { Subject, combineLatest, takeUntil } from 'rxjs';
 
 @Component({
